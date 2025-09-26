@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHR Buddy Case Study | Lisa Mithani</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="MHRBuddy.css">
+</head>
+<body>
+    <nav class="case-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Back to homepage">
+                <span class="nav-back-arrow">←</span>
+                <span>Lisa Mithani</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#challenge">Problem</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#my-role">My Role</a></li>
+                <li><a href="#impact">Impact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero-case">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">MHR Buddy</h1>
+                    <p class="hero-tagline">Bridging Gaps in Australian Healthcare with AI.</p>
+                    <div class="hero-meta">
+                        <div class="meta-item"><span>🏆</span> Health Systems Innovation Hackathon 2025</div>
+                        <div class="meta-item"><span>👩‍💻</span> Team of 2</div>
+                        <div class="meta-item"><span>🤖</span> Service Design & AI Concept</div>
+                    </div>
+                    <a href="#challenge" class="hero-button">View Case Study</a>
+                </div>
+                <div class="hero-image-container">
+                    <img src="Images/mhr-buddy-ui.png" alt="Mockups of the MHR Buddy application on two iPhones." class="hero-main-image" />
+                </div>
+            </div>
+        </section>
+
+        <div class="problem-overview">
+            <div class="container overview-grid">
+                <div class="overview-text">
+                    <p>Developed and pitched MHR Buddy at the Harvard HSIL Global Healthcare AI Hackathon 2025, hosted at Westmead Hospital by the University of Sydney. The solution addressed fragmented patient care in Australia’s My Health Record (MHR) system by creating an AI-powered health companion that improves communication between patients, GPs, and specialists.</p>
+                </div>
+                <figure class="overview-image">
+                    <img src="Images/Lisa_Leanna.jpeg" alt="Lisa Mithani and her teammate Leanna Yue.">
+                    <figcaption>My Teammate Leanna Yue and I</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <section id="challenge" class="case-section">
+            <div class="container">
+                <div class="section-label">The Problem Space</div>
+                <h2 class="section-title">The Fragmented Reality of Patient Care</h2>
+                <p class="challenge-intro">
+                    Fragmented care leads to duplicated tests, delays, and poor communication. <b>50% of patients report poor GP-specialist communication</b> in Australia, resulting in a disconnected and frustrating healthcare journey.
+                </p>
+                <div class="problem-cards-grid">
+                    <div class="problem-card">
+                        <div class="problem-icon">💥</div>
+                        <h4>Impact on Patients</h4>
+                        <p>Patients face duplicated tests, conflicting treatment plans, and delays in diagnosis or treatment.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">🔗</div>
+                        <h4>Root Cause</h4>
+                        <p>A lack of coordinated care, where different healthcare providers do not work together seamlessly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="case-section" style="background: var(--color-light);">
+            <div class="container">
+                <div class="section-label">Research</div>
+                <h2 class="section-title">The MHR Challenge & The Patient Journey</h2>
+                <p class="challenge-intro">
+                    Australia's "My Health Record" (MHR) system was introduced to improve information sharing, but it suffers from low patient awareness, a separate account creation process, and technical documentation that is hard for patients to understand.
+                </p>
+
+                <div class="persona-highlight">
+                    <img src="Images/scully.jpeg" alt="A portrait of Arthur Thompson, a man in his late 40s." class="persona-image">
+                    <div class="persona-details">
+                        <h3 class="section-title-sub" style="margin-bottom: 1rem; text-align: left;">Target Persona</h3>
+                        <p>Our research focused on patients aged 45 and above with chronic diseases, who frequently navigate the complex journey between GPs and specialists.</p>
+                        <div class="persona-bio">
+                            <strong>Demographic:</strong> Arthur Thompson, 48, Sydney Inner West<br>
+                            <strong>Illness Type:</strong> Type 2 Diabetes, Hypertension
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-container">
+                    <h3 class="section-title-sub">A Patient's End-to-End Journey (Current State)</h3>
+                    <p class="challenge-intro" style="font-style: italic; margin-bottom: 3rem;">To understand the real-world friction, we interviewed over 15 nurses, doctors, and MHR users at the hackathon to map out the current journey.</p>
+                    <div class="journey-grid">
+                        <div class="journey-step">
+                            <div class="journey-number">1</div>
+                            <div class="journey-content">
+                                <h4>Accessing MHR</h4>
+                                <p>Patients face a complex setup requiring a separate MHR account, even with a MyGov login. There is a general lack of awareness about the platform's purpose and benefits.</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="journey-number">2</div>
+                            <div class="journey-content">
+                                <h4>GP Visits</h4>
+                                <p>Patients must repeatedly provide their medical history at each visit. A lack of transparent specialist information often limits their choices to the GP's immediate recommendation.</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="journey-number">3</div>
+                            <div class="journey-content">
+                                <h4>Specialist Visits</h4>
+                                <p>Long wait times are common, and the medical documentation provided by specialists in the MHR is often too technical for patients to understand, leading to confusion.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stakeholder-map-section">
+                    <h3 class="section-title-sub">Stakeholder Needs</h3>
+                    <div class="stakeholder-grid">
+                        <div class="stakeholder-card">
+                            <div class="stakeholder-header">
+                                <div class="stakeholder-icon">👤</div>
+                                <h4>Primary Focus: Patient</h4>
+                            </div>
+                            <div class="stakeholder-body">
+                                <ul>
+                                    <li>Spend less time waiting for specialists</li>
+                                    <li>Feel less lost in the healthcare process</li>
+                                    <li>Easily understand their diagnosis better</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="stakeholder-card">
+                            <div class="stakeholder-header">
+                                <div class="stakeholder-icon">🧑‍⚕️</div>
+                                <h4>Secondary Focus: GP & Specialist</h4>
+                            </div>
+                            <div class="stakeholder-body">
+                                <ul>
+                                    <li>Better understand a patient's medical history from GP referrals</li>
+                                    <li>Quickly access required patient information</li>
+                                    <li>Reduce manual work syncing data between EHR and MHR systems</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="stakeholder-card">
+                            <div class="stakeholder-header">
+                                <div class="stakeholder-icon">🏛️</div>
+                                <h4>Tertiary Focus: Government</h4>
+                            </div>
+                            <div class="stakeholder-body">
+                                <ul>
+                                    <li>Achieve cost savings and efficiency by reducing duplication</li>
+                                    <li>Streamline administration and improve resource allocation</li>
+                                    <li>Improve chronic disease management through coordinated care</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="case-section">
+            <div id="ideal-journey">
+                <div class="container">
+                    <div class="section-label">The Vision</div>
+                    <h2 class="section-title">The Ideal Patient Journey with MHR Buddy</h2>
+                    <div class="timeline-container">
+                        <div class="timeline-stage">
+                            <div class="timeline-icon">💻</div>
+                            <div class="timeline-content">
+                                <h4>Accessing MHR</h4>
+                                <ul>
+                                    <li>Unified MyGov login with IHI link. No need to create a new account.</li>
+                                    <li>MHR helps patients manage appointments and understand medical symptoms.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="timeline-icon">👩‍⚕️</div>
+                            <div class="timeline-content">
+                                <h4>GP Visits</h4>
+                                <ul>
+                                    <li>GP accesses patient data directly via MHR, so the patient doesn't need to repeat themselves.</li>
+                                    <li>Patient can select a specialist with GP's help, based on history, availability, and location.</li>
+                                    <li>Appointments are booked and documents sent by the GP through MHR, so patients don't need to manage it themselves.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="timeline-icon">🤖</div>
+                            <div class="timeline-content">
+                                <h4>Specialist Visits</h4>
+                                <ul>
+                                    <li>AI helps patients manage their condition, understand medications, and visualize appointments using MHR data.</li>
+                                    <li>Patients can chat with AI to ask follow-up questions and receive reminders.</li>
+                                    <li>Appointment notifications are sent via MHR, improving visibility and care coordination.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-features" style="background: var(--color-light); padding: var(--space-2xl) 0;">
+                <div class="container">
+                    <div class="section-label">The Solution</div>
+                    <h2 class="section-title">MHR Buddy: A Personalised Health Companion</h2>
+
+                    <div class="final-features-showcase">
+                        <div class="feature-showcase">
+                            <div class="feature-text-content">
+                                <div class="feature-header">
+                                    <div class="feature-icon-new login">🔑</div>
+                                    <h5 class="feature-title-new">Unified & Simplified Access</h5>
+                                </div>
+                                <p class="feature-description-new">The redesigned dashboard provides a clear, patient-centric overview of the entire care journey. Key features are brought to the forefront, including: View Consultations, AI assistance, Visual Reports, and Privacy Controls.</p>
+                            </div>
+                            <div class="feature-visuals">
+                                 <div class="side-by-side-visuals">
+                                     <img src="Images/Welcome.png" alt="Current MHR welcome screen.">
+                                     <img src="Images/HomePage.png" alt="Redesigned MHR Buddy dashboard screen.">
+                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-showcase feature-showcase--reversed">
+                            <div class="feature-visuals">
+                                 <div class="chatbot-visuals">
+                                     <img src="Images/ChatBot-1.png" alt="MHR Buddy AI chatbot interface.">
+                                     <img src="Images/ChatBot.png" alt="An example of the MHR Buddy chatbot answering a patient's question about medication.">
+                                 </div>
+                            </div>
+                            <div class="feature-text-content">
+                                <div class="feature-header">
+                                    <div class="feature-icon-new ai">🤖</div>
+                                    <h5 class="feature-title-new">AI-Powered Assistance</h5>
+                                </div>
+                                <p class="feature-description-new">The core of MHR Buddy is an AI assistant that translates complex medical documents into easy-to-understand summaries. Patients can ask questions about their consultations, medications, and symptoms in plain language.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="visual-comparison">
+                        <div class="comparison-description">
+                            <h3 class="section-title-sub">Simplifying Consultations</h3>
+                            <p class="challenge-intro">MHR Buddy transforms dense, technical medical documents into clean, glanceable summaries. Patients can quickly see key takeaways and prescribed actions, empowering them to manage their care effectively.</p>
+                        </div>
+                        <div class="comparison-grid">
+                            <figure class="comparison-item">
+                                <img src="Images/MHR_Current.png" alt="A complex spreadsheet representing the confusing data in the current system.">
+                                <figcaption>Current System</figcaption>
+                            </figure>
+                            <figure class="comparison-item">
+                                <img src="Images/Consultation Page.png" alt="MHR Buddy's clear and simple consultation summary view.">
+                                <figcaption>MHR Buddy</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="my-role" class="case-section">
+            <div class="container">
+                <div class="section-label">Contribution</div>
+                <h2 class="section-title">My Role: UX Research & Strategy</h2>
+                <div class="role-container">
+                    <div class="role-icon">🔬</div>
+                    <p class="challenge-intro">
+                        As the UX Researcher and Strategist on this two-person team, my primary responsibility was to understand the human side of the problem and translate those insights into a clear direction for our AI-powered solution.
+                    </p>
+                    <div class="role-points">
+                        <ul>
+                            <li>I co-led guerrilla interviews with nurses and local users at the hackathon to quickly gather qualitative data on their experiences with the current MHR platform.</li>
+                            <li>I was responsible for mapping the end-to-end patient journey, which was crucial for identifying the specific pain points and communication gaps that our solution needed to address.</li>
+                            <li>I collaborated closely with my teammate (who focused on UI/UX design) to define the core AI strategy, ensuring that features like the AI summary and chat directly solved the problems we uncovered in our research.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="case-section" style="background: var(--color-light);">
+            <div class="container">
+                <div class="section-label">Impact</div>
+                <h2 class="section-title">Addressing the Pain Points & Future Roadmap</h2>
+                <p class="challenge-intro">MHR Buddy was designed to provide tangible benefits for patients, providers, and the government by creating a more connected and patient-centric healthcare ecosystem.</p>
+                <div class="outcome-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">❤️</div>
+                        <h4>Reduces Patient Burden</h4>
+                        <p>Eliminates the need for patients to repeatedly share their medical history at every visit.</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">💡</div>
+                        <h4>Improves Health Literacy</h4>
+                        <p>AI-powered summaries empower patients by helping them easily understand their diagnosis and treatment plans.</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⚙️</div>
+                        <h4>Increases System Efficiency</h4>
+                        <p>Provides timely access to crucial medical data, reducing duplicate tests and streamlining administration.</p>
+                    </div>
+                </div>
+
+                <div class="solution-timeline">
+                    <h3 class="section-title-sub" style="margin-top: 4rem;">Future Roadmap & Scaling</h3>
+                    <div class="timeline-grid">
+                        <div class="timeline-item">
+                            <h4>Now</h4>
+                            <p class="timeline-problem">Low user awareness and technical complexity of MHR.</p>
+                            <p class="timeline-solution">Educate users about MHR's potential via workshops and community outreach.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>6 Months</h4>
+                            <p class="timeline-problem">Duplication of account creation between myGov and MHR.</p>
+                            <p class="timeline-solution">Implement automatic MHR account creation with myGov login using a unique identifier.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>1-2 Years</h4>
+                            <p class="timeline-problem">Fragmentation in the EHR systems used by clinicians.</p>
+                            <p class="timeline-solution">Position MHR as the central hub for both patients and doctors, improving system-wide integration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="case-footer">
+        <div class="container">
+            <a href="OlympiOS.html" class="next-project-card" aria-label="View previous project: OlympiOS">
+                <div class="next-project-text">
+                    <p>← Previous Project</p>
+                    <h3>OlympiOS</h3>
+                </div>
+                <div class="next-project-visual">
+                    <img src="Images/OlympiOS_Preview.png" alt="A preview of the OlympiOS project.">
+                </div>
+            </a>
+        </div>
+    </footer>
+
+    <script src="MHRBuddy.js"></script>
+</body>
+</html>

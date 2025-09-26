@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OlympiOS Case Study | Lisa Mithani</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="OlympiOS.css">
+</head>
+<body>
+    <nav class="case-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Back to homepage">
+                <span class="nav-back-arrow">←</span>
+                <span>Lisa Mithani</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#challenge">Problem</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#ideation">Ideation</a></li>
+                <li><a href="#refinement">Refinement</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#impact">Impact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero-case">
+            <div class="hero-container">
+                <div class="hero-image-container">
+                    <img src="Images/OlympiOS_Preview.png" alt="Stylized background of Olympic rings" class="hero-background-image">
+                    <img src="Images/apple-watch.png" alt="An Apple Watch displaying the main screen of the OlympiOS application." class="hero-watch-image" />
+                </div>
+                <div class="hero-content">
+                    <h1 class="hero-title">OlympiOS</h1>
+                    <p class="hero-tagline">Enhancing the live spectator experience on wearables.</p>
+                    <div class="hero-meta">
+                        <div class="meta-item" aria-label="Project Duration: 18 Weeks">
+                            <span>🕒</span> 18 Week Project
+                        </div>
+                        <div class="meta-item" aria-label="Team Size: 3 Members">
+                            <span>👩‍💻</span> Team of 3
+                        </div>
+                        <div class="meta-item" aria-label="Project Type: Multimodal Wearable UX">
+                            <span>⌚</span> Multimodal Wearable UX
+                        </div>
+                    </div>
+                    <a href="#challenge" class="hero-button">View Case Study</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenge" class="case-section challenge-section">
+            <div class="container">
+                <div class="section-label">The Problem Space</div>
+                <h2 class="section-title">Making the Olympics Engaging for Everyone</h2>
+                <p class="challenge-intro">
+                    Public screenings of major sporting events like the Olympics aim to create a communal experience but often fall flat for casual viewers, leaving them disconnected from both the content and the crowd around them.
+                </p>
+                <div class="park-image-container">
+                    <div class="park-images-grid">
+                        <div class="park-image-wrapper">
+                            <img src="Images/tumbalong-park-1.jpeg" alt="A large crowd watching a screen at Tumbalong Park during an Olympic viewing." class="park-image" />
+                            <div class="location-tag">
+                                <span class="location-icon">📍</span>
+                                <span class="location-text">Tumbalong Park, Sydney</span>
+                            </div>
+                        </div>
+                        <div class="park-image-wrapper">
+                            <img src="Images/tumbalong-park-2.jpeg" alt="Another view of the Olympic screening at Tumbalong Park." class="park-image" />
+                        </div>
+                    </div>
+                    <p class="image-caption">
+                        <em>Tumbalong Park during a live Olympic viewing—vibrant in setting, but the energy rarely matched the screen.</em>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="case-section" style="background: var(--color-light);">
+            <div class="container">
+                <div class="section-label">Research & Synthesis</div>
+                <h2 class="section-title">Understanding Our Users</h2>
+                <div class="methodology-section">
+                    <h3 class="methodology-title">Our Research Approach</h3>
+                    <div class="methodology-grid">
+                        <div class="method-card">
+                            <div class="method-icon">🎤</div>
+                            <h4>Guerrilla Interviews</h4>
+                            <p>15 on-site interviews with park visitors</p>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon">📊</div>
+                            <h4>Survey Research</h4>
+                            <p>44 respondents across different demographics</p>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon">👀</div>
+                            <h4>Observational Study</h4>
+                            <p>Direct observation of viewer behavior patterns</p>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon">🔍</div>
+                            <h4>Competitive Analysis</h4>
+                            <p>Examining existing solutions and limitations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-quotes-section">
+                    <h3 class="section-title-sub">What Our Users Told Us</h3>
+                    <div class="user-quotes-grid">
+                        <div class="user-quote">
+                            "I think travelling all the way to Tumbalong park is not necessary as I can easily watch it at the comfort of my home."
+                            <div class="user-quote-author">— Accessibility & Travel Pain Points</div>
+                        </div>
+                        <div class="user-quote">
+                            "I feel that the Olympics has way too many games that I am not interested in or do not understand fully to be committed."
+                            <div class="user-quote-author">— Engagement & Understanding</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="persona-section">
+                    <h3 class="section-title-sub">User Synthesis: Meet Our Core Personas</h3>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar" data-fallback="🏟️"></div>
+                            <div class="persona-title">Meet Jack – The Sports Enthusiast</div>
+                            <ul>
+                                <li><strong>Goal:</strong> To experience the thrill of the games and share excitement with other passionate fans.</li>
+                                <li><strong>Frustration:</strong> Finds live venues underwhelming without strong social energy.</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                             <div class="persona-avatar" data-fallback="🛋️"></div>
+                            <div class="persona-title">Meet Kelly – The Comfort Seeker</div>
+                             <ul>
+                                <li><strong>Goal:</strong> To enjoy the Olympics without compromising personal comfort.</li>
+                                <li><strong>Frustration:</strong> Finds outdoor viewing setups physically uncomfortable and lacking unique value.</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar" data-fallback="🤝"></div>
+                            <div class="persona-title">Meet Savannah – The Social Connector</div>
+                             <ul>
+                                <li><strong>Goal:</strong> To bond with friends and meet like-minded people in an engaging environment.</li>
+                                <li><strong>Frustration:</strong> Feels venues lack opportunities for meaningful social interactions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aha-moment">
+                    <h3 class="section-title-sub">The "Aha!" Moment</h3>
+                    <p class="research-intro">The primary issue wasn't the venue's setup but a lack of shared atmosphere and social cues. The <strong>emotional and social infrastructure</strong> was missing, leaving viewers needing contextual understanding, emotional connection, and social synchronization to feel truly engaged.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ideation" class="case-section ideation-section">
+            <div class="container">
+                <div class="section-label">Ideation</div>
+                <h2 class="section-title">From Insights to Creative Solutions</h2>
+                <div class="hmw-statement">
+                    <h3>How might we make Olympic live-streaming more accessible, exciting, and social—even for casual viewers at public parks?</h3>
+                </div>
+
+                <div class="opportunity-areas-section">
+                    <h3 class="section-title-sub">Emerging Opportunity Areas</h3>
+                    <div class="opportunity-areas-grid">
+                        <div class="opportunity-area-card" data-area="knowledge">
+                            <div class="opportunity-visual"><div class="opportunity-icon-bg"><span class="opportunity-icon">🧠</span></div></div>
+                            <div class="opportunity-content">
+                                <h4>Increasing Knowledge</h4>
+                                <p>Providing real-time, digestible information to demystify the sports.</p>
+                            </div>
+                        </div>
+                        <div class="opportunity-area-card" data-area="spirit">
+                            <div class="opportunity-visual"><div class="opportunity-icon-bg"><span class="opportunity-icon">🎉</span></div></div>
+                            <div class="opportunity-content">
+                                <h4>Boosting Cheer & Spirit</h4>
+                                <p>Creating interactive ways for fans to celebrate and feel part of the event.</p>
+                            </div>
+                        </div>
+                        <div class="opportunity-area-card" data-area="social">
+                            <div class="opportunity-visual"><div class="opportunity-icon-bg"><span class="opportunity-icon">🤝</span></div></div>
+                            <div class="opportunity-content">
+                                <h4>Promoting Socialization</h4>
+                                <p>Fostering shared moments to heighten motivation to attend and bond.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ideation-process">
+                    <h3 class="section-title-sub">Brainstorming Our Approach</h3>
+                    <p class="challenge-intro">We chose the following methods to encourage spontaneous thinking, break typical patterns, and effectively communicate our ideas.</p>
+                    <div class="ideation-methods-grid">
+                        <div class="ideation-method-card">
+                            <img src="Images/forced-association.jpg" alt="A board showing the forced association brainstorming technique with words and images.">
+                            <h4>Forced Association</h4>
+                            <p>"Forced association can push the boundaries of our imagination and creativity, and break typical patterns of thinking."</p>
+                        </div>
+                        <div class="ideation-method-card">
+                            <img src="Images/mindmapping-process.jpg" alt="A digital mindmap showing connections between different ideas and concepts.">
+                            <h4>Mindmapping</h4>
+                            <p>"Any idea can be connected to any other; their purpose is to stimulate associations among ideas…which requires free-form and spontaneous thinking."</p>
+                        </div>
+                        <div class="ideation-method-card">
+                            <img src="Images/storyboarding-process.jpg" alt="Sketches of a user journey, illustrating the storyboarding process.">
+                            <h4>Storyboarding</h4>
+                            <p>"Storyboarding is a way to communicate ideas, to highlight the issues with the existing viewing experience... and explore the possible interactions with our design solutions."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="storyboard-showcase">
+                    <h3 class="section-title-sub">Developing Initial Concepts</h3>
+                    <div class="storyboard-grid">
+                        <div class="storyboard-card">
+                            <img src="Images/lisa-storyboard.jpg" alt="Lisa's storyboard concept for the OlympiOS app.">
+                            <div class="storyboard-description">
+                                <h4>Concept A: The Wearable Companion</h4>
+                                <p>An interactive watch that allows users to read rules, follow scores for live games, and cheer for their favorite country. This idea was strong and targeted the problem effectively.</p>
+                            </div>
+                        </div>
+                        <div class="storyboard-card">
+                            <img src="Images/michelle-storyboard.png" alt="Michelle's storyboard concept for the OlympiOS app.">
+                            <div class="storyboard-description">
+                                <h4>Concept B: The Gamified App</h4>
+                                <p>Gamification of the live-viewing experience with an enhanced cheer function, allowing users to interact with the main screen via their mobile phones.</p>
+                            </div>
+                        </div>
+                        <div class="storyboard-card">
+                            <img src="Images/sophie-storyboard.jpg" alt="Sophie's storyboard concept for the OlympiOS app.">
+                             <div class="storyboard-description">
+                                <h4>Concept C: The Interactive Couch</h4>
+                                <p>A rounded couch focusing on group socialization with a cheer button and a small interface embedded into the furniture itself. This was deemed less feasible and resource-intensive.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="challenge-intro" style="margin-top: 3rem;">Based on our concept evaluation and testing, we ended up combining the strongest ideas from all three initial storyboards—primarily from Concept A—to create our final, refined solution.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="refinement" class="case-section" style="background: var(--color-light);">
+            <div class="container">
+                <div class="section-label">Refinement</div>
+                <h2 class="section-title">Concept Evaluation & Testing</h2>
+                 <p class="challenge-intro">
+                    We developed three distinct concepts based on our opportunity areas and used a decision matrix and user feedback to select the most viable and impactful solution. The interactive wearable concept was the clear winner.
+                </p>
+                <div class="evaluation-images-grid">
+                    <div class="evaluation-image-container">
+                        <img src="Images/decision-matrix.png" alt="A decision matrix showing evaluation criteria like feasibility and user impact for three concepts." class="evaluation-image" />
+                        <div class="evaluation-description">
+                            <h4>Decision Matrix</h4>
+                            <p>We used a decision matrix to quantitatively score our concepts. Criteria were based on the problem statement, practicality, and usability, helping us identify the most logical path forward.</p>
+                        </div>
+                    </div>
+                    <div class="evaluation-image-container">
+                        <img src="Images/concept-testing.png" alt="A board showing user feedback and notes from concept testing sessions." class="evaluation-image" />
+                        <div class="evaluation-description">
+                            <h4>Concept Testing</h4>
+                            <p>We conducted early-stage concept testing to gather user feedback *before* prototyping. Asking questions about appeal and engagement validated that the wearable concept best enhanced the public viewing experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="case-section">
+            <div class="container">
+                <div class="section-label">Final Solution</div>
+                <h2 class="section-title">Introducing OlympiOS: A Wearable Companion</h2>
+                <div class="final-features-showcase">
+                    <div class="feature-showcase">
+                        <div class="feature-visuals">
+                            <figure>
+                                <img src="Images/OlympiOS_Composite_Onboarding.png" alt="The onboarding and personalization flow for the OlympiOS watch app." class="feature-composite-image">
+                            </figure>
+                        </div>
+                        <div class="feature-text-content">
+                            <div class="feature-header">
+                                <div class="feature-icon-new onboarding">🚀</div>
+                                <h5 class="feature-title-new">Seamless Onboarding</h5>
+                            </div>
+                            <p class="feature-description-new">A simple, personalized setup allows users to select their language, choose countries to support, and pick favorite sports to follow, tailoring the experience from the start.</p>
+                        </div>
+                    </div>
+            
+                    <div class="feature-showcase feature-showcase--reversed">
+                        <div class="feature-visuals">
+                            <figure>
+                                <img src="Images/OlympiOS_UI_Understand_1.png" alt="The 'Understanding the Game' feature on the OlympiOS watch app, showing game rules." class="feature-composite-image">
+                            </figure>
+                        </div>
+                        <div class="feature-text-content">
+                            <div class="feature-header">
+                                <div class="feature-icon-new understanding">💡</div>
+                                <h5 class="feature-title-new">Understanding the Game</h5>
+                            </div>
+                            <p class="feature-description-new">OlympiOS provides real-time, contextual information. Users can quickly access a simplified rulebook for the sport they're watching, turning confusion into engagement.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-showcase">
+                        <div class="feature-visuals">
+                            <figure>
+                                <img src="Images/OlympiOS_Composite_Cheer.png" alt="The interactive 'Cheering' feature on the OlympiOS watch app, with tap and shake interactions." class="feature-composite-image">
+                            </figure>
+                        </div>
+                        <div class="feature-text-content">
+                            <div class="feature-header">
+                                <div class="feature-icon-new cheering">📣</div>
+                                <h5 class="feature-title-new">Interactive Cheering</h5>
+                            </div>
+                            <p class="feature-description-new">A <strong>tap</strong> sends ambient support to the big screen, while a celebratory <strong>wrist shake</strong> when their country wins displays the user’s custom avatar on the main broadcast for a moment of personal recognition.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="case-section" style="background: var(--color-light);">
+            <div class="container">
+                <div class="section-label">Impact & Reflection</div>
+                <h2 class="section-title">Measurable Results & Key Takeaways</h2>
+                <div class="outcome-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">94%</div>
+                        <div class="metric-label">Said they'd feel more engaged</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">3.2x</div>
+                        <div class="metric-label">More likely to understand a new sport</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">87%</div>
+                        <div class="metric-label">Preferred over phone apps for this context</div>
+                    </div>
+                </div>
+                <blockquote class="user-quote" style="max-width: 700px; margin: 3rem auto;">
+                    "This would completely change how I experience live sports. I finally understood what was happening in fencing!"
+                    <div class="user-quote-author">— Usability Test Participant</div>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+
+    <footer class="case-footer">
+        <div class="container">
+            <a href="MHRBuddy.html" class="next-project-card" aria-label="View next project: MHR Buddy">
+                <div class="next-project-text">
+                    <p>Next Project →</p>
+                    <h3>MHR Buddy</h3>
+                </div>
+                <div class="next-project-visual">
+                    <img src="Images/mhr-buddy-ui.png" alt="A preview of the MHR Buddy project.">
+                </div>
+            </a>
+        </div>
+    </footer>
+
+    <script src="OlympiOS.js"></script>
+</body>
+</html>
