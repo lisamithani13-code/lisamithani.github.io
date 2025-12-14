@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Best Spot</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header fybs-header">
+        <div class="header-container fybs-header-container">
+            <div class="logo-section fybs-logo-section">
+                <img src="images/Logo.png" alt="Find Your Best Spot Logo" class="app-logo fybs-app-logo">
+                <div class="brand-name fybs-brand-name">Find Your Best Spot</div>
+            </div>
+
+            <nav class="nav-menu fybs-nav-menu" id="navMenu">
+                <li classs="nav-item fybs-nav-item">
+                    <a href="index.html" class="nav-link fybs-nav-link active">Home</a>
+                </li>
+                <li classs="nav-item fybs-nav-item">
+                    <a href="index.html#about-app-section" class="nav-link fybs-nav-link">About</a>
+                </li>
+                <li classs="nav-item fybs-nav-item">
+                    <a href="index.html#contact-us" class="nav-link fybs-nav-link">Contact</a>
+                </li>
+            </nav>
+
+            <div class="header-actions fybs-header-actions">
+                <button class="icon-button fybs-icon-button" title="Search" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-button fybs-icon-button" title="Notifications" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="profile-button fybs-profile-button" title="Profile" aria-label="View profile">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="mobile-menu-toggle fybs-mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <div class="hamburger fybs-hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero-main-content">
+        <div class="background-pattern-overlay"></div>
+        <div class="welcome-card fybs-welcome-card">
+            <h1 class="welcome-title fybs-welcome-title">Welcome Lisa!</h1>
+            <p class="welcome-subtitle fybs-welcome-subtitle">
+                <span role="img" aria-label="Woman at computer emoji">👩‍💻</span>
+                Discover Your Perfect Workspace
+            </p>
+            <a href="quiz-step1.html?start=new" class="get-started-btn fybs-get-started-btn">
+                Get Started
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <section id="about-app-section" class="about-section">
+        <div class="about-content-wrapper">
+            <h2>About Find Your Best Spot</h2>
+            <p class="intro-paragraph">
+                Tired of freezing at your desk in the morning, only to battle noise distractions and eye strain by afternoon? You're not alone—<strong>90% of office workers struggle with poor Indoor Environmental Quality (IEQ)</strong>, costing companies billions in lost productivity (Berkeley Lab, 2011).
+            </p>
+            <p>
+                That's why we created <strong>Find Your Best Spot</strong>: an interactive web app that helps you locate the perfect workspace in real-time based on your comfort needs. We believe you shouldn't have to adapt to your office; your office should adapt to you.
+            </p>
+            <div class="app-showcase-placeholder" style="text-align: center; margin: 2rem 0;">
+                <img src="Images/app-welcome.png" alt="Find Your Best Spot App Welcome Screen" style="max-width: 400px; width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">App Preference Selection Interface</p>
+            </div>
+
+            <h3>The Challenge: Invisible Factors Sabotaging Your Focus</h3>
+            <p>Most offices are a patchwork of microclimates. These aren't just minor annoyances; they are significant barriers to performance (Olli et al., 2006):</p>
+
+            <div class="ieq-factors-grid">
+                <div class="ieq-factor-item">
+                    <div class="ieq-icon-container">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <div class="ieq-text-content">
+                        <h4>Temperature Swings</h4>
+                        <p>(19°C to 27°C across zones) that reduce focus by 6% per degree off ideal. Productivity can decrease by about 2% for each 1°C increase above 25°C (Olli et al., 2006).</p>
+                    </div>
+                </div>
+                <div class="ieq-factor-item">
+                    <div class="ieq-icon-container">
+                        <i class="fas fa-volume-up"></i> </div>
+                    <div class="ieq-text-content">
+                        <h4>Noise Spikes</h4>
+                        <p>(up to 71dB—louder than a vacuum) that triple errors in cognitive tasks. 70% of employees report being distracted by office noise (SAS International, 2022).</p>
+                    </div>
+                </div>
+                <div class="ieq-factor-item">
+                    <div class="ieq-icon-container">
+                        <i class="far fa-lightbulb"></i> </div>
+                    <div class="ieq-text-content">
+                        <h4>Lighting Imbalances</h4>
+                        <p>where dim zones strain eyes and cut productivity by 18%. Inadequate lighting, in general, affects mood (Golmohammadi et al., 2021).</p>
+                    </div>
+                </div>
+                <div class="ieq-factor-item">
+                    <div class="ieq-icon-container">
+                        <i class="fas fa-tint"></i> </div>
+                    <div class="ieq-text-content">
+                        <h4>Humidity Fluctuations</h4>
+                        <p>to desert-like 30% at night, causing fatigue. Though often overlooked, humidity plays a key role in thermal comfort (Jenkins, 2019).</p>
+                    </div>
+                </div>
+            </div>
+            <p class="emphasis-paragraph">These inconsistencies lead to increased stress, fatigue, and a general sense of dissatisfaction with the work environment—they’re <strong>performance killers 😵</strong>.</p>
+
+            <h3>How It Works: Effortless Comfort in Three Simple Steps</h3>
+            <ol class="how-it-works-list">
+                <li>
+                    <div class="how-it-works-image-wrapper">
+                        <div class="how-it-works-placeholder-container">
+                            <img src="Images/phone-use.gif" alt="Visual for 'Tell Us Your Needs'" class="how-it-works-image">
+                            </div>
+                    </div>
+                    <div class="how-it-works-text-content">
+                        <h4>Step 1: Tell Us Your Needs (30 Seconds)</h4>
+                        <p>Complete a quick, intuitive quiz about your preferences (e.g., “Quiet space for deep work” or “Bright area for collaboration”, or your ideal temperature).</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="how-it-works-image-wrapper">
+                        <div class="how-it-works-placeholder-container">
+                            <img src="Images/happy-phone.gif" alt="Visual for 'Get Matched Instantly'" class="how-it-works-image">
+                            </div>
+                    </div>
+                    <div class="how-it-works-text-content">
+                        <h4>Step 2: Get Matched Instantly</h4>
+                        <p>Our intelligent system analyzes live IEQ data – covering temperature, noise, light, and air quality – from SAMBA sensors across your office. It then instantly recommends your top 3 optimal workspaces.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="how-it-works-image-wrapper">
+                        <div class="how-it-works-placeholder-container">
+                            <img src="Images/office-gif.gif" alt="Visual for 'Work Smarter'" class="how-it-works-image">
+                            </div>
+                    </div>
+                    <div class="how-it-works-text-content">
+                        <h4>Step 3: Work Smarter, Not Harder</h4>
+                        <p>No more guessing—just tap to navigate to your ideal spot. The app recommendations update throughout the day as environmental conditions change, ensuring you're always in a conducive space.</p>
+                    </div>
+                </li>
+            </ol>
+
+            <h3>The Science Behind Your Spot: Data-Driven, People-Approved</h3>
+            <p>Find Your Best Spot isn't magic; it's science made simple. Developed using real IEQ data and tested with office workers like you, our platform translates complex environmental metrics into straightforward, actionable recommendations. We analyze:</p>
+            <ul>
+                <li>Real-time Temperature: Identifying consistently warmer or cooler zones.</li>
+                <li>Ambient Noise Levels: Pinpointing areas prone to disruptive noise spikes.</li>
+                <li>Light Intensity & Quality: Differentiating between dimly lit areas and those with abundant light.</li>
+                <li>Air Quality & Humidity: Ensuring a holistically comfortable and healthy environment.</li>
+            </ul>
+            <div class="app-showcase-placeholder" style="text-align: center; margin: 2rem 0;">
+                <img src="Images/data-science.png" alt="Visual representation of data analysis" style="max-width: 450px; width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Stylized IEQ data chart showing a zone's light pattern throughout the day</p>
+            </div>
+            <p>This intelligent use of existing space means you can optimize comfort and productivity without the need for expensive renovations (Calvo et al., 2022).</p>
+
+
+            <h3>Proven Benefits: A Win-Win for Employees and Employers</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>For You, the Employee 😌:</h4>
+                    <ul>
+                        <li><strong>Enhanced Focus:</strong> Minimize distractions and concentrate better.</li>
+                        <li><strong>Reduced Fatigue:</strong> Work in an environment that supports your well-being.</li>
+                        <li><strong>Increased Comfort:</strong> Pilot users reported <strong>40% fewer comfort complaints</strong>.</li>
+                        <li><strong>Empowerment:</strong> Choose the space that best fits your needs.</li>
+                    </ul>
+                </div>
+                <div class="benefit-item">
+                    <h4>For Your Organization, the Employer 👩🏻‍💻:</h4>
+                    <ul>
+                        <li><strong>Boosted Productivity:</strong> Studies show potential <strong>9% productivity gains</strong> by maintaining optimal indoor environment (Berkeley Lab, 2025).</li>
+                        <li><strong>Improved Well-being & Reduced Absenteeism:</strong> Comfortable environments contribute to better health and can lead to <strong>30% fewer sick days</strong> (Mohamed Subri et al., 2024).</li>
+                        <li><strong>Cost-Effective Solution:</strong> Maximize the potential of your existing office layout without requiring major capital investment. Modern IEQ monitoring systems are increasingly cost-effective and scalable (Fissore et al., 2025).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="about-cta-links">
+                <p>Ready to transform your workday (and workplace)?</p>
+                <a href="quiz-step1.html?start=new" class="cta-link primary-cta">Try the demo</a>
+                 <a href="#contact-us" class="cta-link secondary-cta">Learn how to bring this to your office</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-us" class="contact-section">
+         <div class="contact-content-wrapper">
+             <h2>Contact Us</h2>
+             <p>Have questions or want to learn more about bringing Find Your Best Spot to your office? Get in touch!</p>
+             <p>Email: <a href="mailto:info@findyourbestspot.com">info@findyourbestspot.com</a></p>
+             <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+         </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

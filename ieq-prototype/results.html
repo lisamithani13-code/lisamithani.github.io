@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Recommendations - Find Your Best Spot</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="results-page"> <header class="header fybs-header">
+        <div class="header-container fybs-header-container">
+            <div class="logo-section fybs-logo-section">
+                <img src="images/Logo.png" alt="Find Your Best Spot Logo" class="app-logo fybs-app-logo">
+                <div class="brand-name fybs-brand-name">Find Your Best Spot</div>
+            </div>
+
+            <nav class="nav-menu fybs-nav-menu" id="navMenu">
+                <li classs="nav-item fybs-nav-item">
+                    <a href="index.html" class="nav-link fybs-nav-link">Home</a>
+                </li>
+                <li classs="nav-item fybs-nav-item">
+                    <a href="index.html#about-app-section" class="nav-link fybs-nav-link">About</a>
+                </li>
+                <li classs="nav-item fybs-nav-item">
+                    <a href="index.html#contact-us" class="nav-link fybs-nav-link">Contact</a>
+                </li>
+            </nav>
+
+            <div class="header-actions fybs-header-actions">
+                <button class="icon-button fybs-icon-button" title="Search" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-button fybs-icon-button" title="Notifications" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="profile-button fybs-profile-button" title="Profile" aria-label="View profile">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="mobile-menu-toggle fybs-mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <div class="hamburger fybs-hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="results-page-main-content"> <div class="results-page-title-container">
+            <h1>Your Space Recommendations</h1>
+            <p class="subtitle">Find your perfect workspace based on your preferences</p>
+        </div>
+
+        <div class="your-preferences results-page-preferences"> <h2 class="preferences-title">Your Selected Preferences</h2>
+            <div class="preferences-grid">
+                <div class="preference-item">
+                    <div class="preference-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="preference-detail">
+                        <h4>Lighting Preference</h4>
+                        <p id="selected-lighting">Loading...</p>
+                    </div>
+                </div>
+                <div class="preference-item">
+                    <div class="preference-icon"><i class="fas fa-volume-up"></i></div> <div class="preference-detail">
+                        <h4>Noise Preference</h4>
+                        <p id="selected-noise">Loading...</p>
+                    </div>
+                </div>
+                <div class="preference-item">
+                    <div class="preference-icon"><i class="fas fa-thermometer-half"></i></div>
+                    <div class="preference-detail">
+                        <h4>Temperature Preference</h4>
+                        <p id="selected-temperature">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="recommendations-container" class="recommendations results-page-recommendations">
+            <div id="loading-recommendations-message" style="text-align: center; padding: 2rem; font-size: 1.2rem; color: var(--text-secondary);">
+                <div class="spinner" style="margin-left:auto; margin-right:auto;"></div>
+                <p>Loading recommendations...</p>
+            </div>
+            </div>
+
+        <div class="results-actions">
+            <a href="index.html#about-app-section" class="cta-link secondary-cta">Learn More About IEQ</a>
+            <a href="quiz-step1.html?start=new" class="cta-link primary-cta">Start New Search</a>
+        </div>
+    </main>
+
+    <footer class="page-footer"> <p>&copy; <span id="currentYear"></span> Find Your Best Spot. All rights reserved.</p>
+        <p><a href="index.html#contact-us">Contact Us</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Small script for current year in footer
+        if(document.getElementById('currentYear')) {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

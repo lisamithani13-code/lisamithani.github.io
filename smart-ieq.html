@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Best Spot | Lisa Mithani</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="smart-ieq.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="smart-ieq-theme">
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">← Back to Portfolio</a>
+            <div class="nav-menu">
+                <a href="#context" class="nav-link">Context</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#design" class="nav-link">Design</a>
+                <a href="#implementation" class="nav-link">Tech</a>
+                <a href="#visual-identity" class="nav-link">Outcome</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        
+        <header class="case-study-hero">
+            <span class="project-pill">Data Visualisation &amp; Frontend</span>
+            <h1>Find Your Best Spot</h1>
+            <p class="subtitle">
+                Turning abstract indoor environmental data into personalised workspace recommendations.
+            </p>
+            
+            <a href="https://findyourbestspot.netlify.app/" target="_blank" class="live-demo-btn">
+                🔗 Try the Live Prototype
+            </a>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <h3>Role</h3>
+                    <p>UX Research · Data Vis · Frontend Dev</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Timeline</h3>
+                    <p>Feb 2025 – May 2025 (3 months)</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Tech Stack</h3>
+                    <p>HTML, CSS, Plotly.js, Excel</p>
+                </div>
+            </div>
+
+            <div class="ieq-snapshot">
+                <div class="snapshot-card">
+                    <span class="snapshot-label">Outcome</span>
+                    <span class="snapshot-value">87.8 SUS</span>
+                    <span class="snapshot-caption">Excellent usability rating</span>
+                </div>
+                <div class="snapshot-card">
+                    <span class="snapshot-label">Participants</span>
+                    <span class="snapshot-value">8</span>
+                    <span class="snapshot-caption">Scenario-based tests</span>
+                </div>
+                <div class="snapshot-card">
+                    <span class="snapshot-label">Key Benefit</span>
+                    <span class="snapshot-value">Comfort</span>
+                    <span class="snapshot-caption">Matches people to zones</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="case-study-content">
+
+            <section id="context" class="content-block">
+                <div class="text-content">
+                    <h2>The Context</h2>
+                    <p>
+                        <strong>Productivity is personal.</strong> Research shows that poor indoor environmental quality can reduce productivity by up to 20%, while personalised control can boost it by 25%.
+                    </p>
+                    <p>
+                        Modern buildings collect rich Indoor Environmental Quality (IEQ) data (temperature, light, noise), but this information usually sits buried in dashboards that employees never see.
+                    </p>
+                    
+                    <h3>The Goal</h3>
+                    <p>
+                        Design an intuitive web tool that helps employees <strong>find their best spot</strong> quickly by translating raw data into plain-language recommendations.
+                    </p>
+
+                    <p><strong>The solution needed to:</strong></p>
+                    <ul class="feature-list">
+                        <li>Be simple enough for non-technical users</li>
+                        <li>Combine multiple sensor datasets (Light, Temp, Noise)</li>
+                        <li>Deliver trustworthy guidance within seconds</li>
+                    </ul>
+                </div>
+                <div class="image-content context-mockup">
+                    <img src="Images/Laptop_Ieq_Image.png" alt="Find Your Best Spot dashboard on a laptop mockup">
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section id="research" class="smart-ieq-theme invisible-office-section">
+                <div class="insight-layout">
+                    <div class="ieq-insight-column">
+                        <button class="ieq-insight-thumb" type="button" data-lightbox-src="Images/temp-insight.png">
+                            <img src="Images/temp-insight.png" alt="Temperature variation insights">
+                            <span class="ieq-insight-label">Temperature Variations</span>
+                        </button>
+                        <button class="ieq-insight-thumb" type="button" data-lightbox-src="Images/noise-insight.png">
+                            <img src="Images/noise-insight.png" alt="Noise patterns">
+                            <span class="ieq-insight-label">Noise Patterns</span>
+                        </button>
+                        <button class="ieq-insight-thumb" type="button" data-lightbox-src="Images/light-insight.png">
+                            <img src="Images/light-insight.png" alt="Lighting levels">
+                            <span class="ieq-insight-label">Lighting Patterns</span>
+                        </button>
+                    </div>
+
+                    <div class="insight-text">
+                        <h2>Understanding the Invisible Office</h2>
+                        <p>
+                            I started by analyzing SAMBA IEQ sensor data across multiple office zones. Instead of jumping straight into UI, I treated this like a data story.
+                        </p>
+                        <ul class="insight-bullets feature-list">
+                            <li>
+                                <strong>The "Morning Chill" Pattern:</strong> 
+                                Data revealed a sharp temp drop at 7–8 AM across all zones, validating user complaints about freezing mornings despite "normal" daily averages.
+                            </li>
+                            <li>
+                                <strong>Noise Zoning:</strong> 
+                                Identified specific zones (like Zone 243) that consistently exceeded 60dB, making them mathematically unsuitable for the "Focus Work" (< 40dB) category.
+                            </li>
+                            <li>
+                                <strong>Light & Alertness:</strong> 
+                                While morning light varied wildly, Zones 48 & 49 remained consistently bright, identifying them as prime candidates for high-alertness tasks.
+                            </li>
+                        </ul>
+
+                        <div class="approach-container">
+                            <h3>My Approach: Data as a Story</h3>
+                            <p>
+                                I realized this wasn’t just a seat-finder—it needed to be a <strong>matchmaker</strong>. 
+                                But before building the final interface, I needed to see if users could actually understand this data.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="strategy" class="content-block">
+                <div class="text-content">
+                    <h2>The Translation Strategy</h2>
+                    <p>
+                        <strong>The Data Challenge:</strong> Confronted with millions of raw data points in Excel, I realized that a direct feed would be meaningless to a busy employee. 
+                    </p>
+                    <p>
+                        My exploratory analysis revealed that raw sensor data is noisy and intimidating. A typical user doesn't care if a sensor reads “47 dB”—they just want to know if it feels “Quiet”.
+                    </p>
+                    <p>
+                        To bridge this gap, I developed a logic layer I call <strong>Adaptive Temporal Granularity</strong> <em>before</em> entering the design phase:
+                    </p>
+                    <ul class="feature-list">
+                        <li><strong>Lighting (Broad Grouping):</strong> Excel data showed chaotic hourly spikes, so I smoothed this into broad bands (e.g., "Morning Brightness") to match human perception.</li>
+                        <li><strong>Noise (Thresholds):</strong> I used conditional formatting heatmaps to identify specific decibel thresholds (e.g., >60dB) that mathematically ruled out "Focus Work."</li>
+                        <li><strong>Visual Encoding:</strong> I decided to replace complex line charts with intuitive color gradients (Cool → Warm) to communicate comfort at a glance.</li>
+                    </ul>
+                </div>
+                
+                <div class="image-content">
+                    <figure class="translation-visual">
+                        <img src="Images/Screenshot 2025-12-07 at 12.43.18 PM.png" alt="Raw Excel Heatmap Analysis of Noise Levels" style="border: 1px solid #e5e7eb; margin-bottom: 1rem;">
+                        <img src="Images/translation-process.png" alt="The simplified UI result">
+                        <figcaption class="caption">
+                            <strong>From Chaos to Clarity:</strong> I analyzed raw heatmaps in Excel (top) to define the logic for the simplified user interface (bottom).
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+            
+            <section id="validation" class="content-block reverse">
+                <div class="text-content">
+                    <h2>Validating with Real Users</h2>
+                    <p>
+                        Before writing a single line of code, I needed to ensure the logic held up. I conducted <strong>scenario-based usability testing with 8 participants</strong> using low-fidelity paper prototypes.
+                    </p>
+                    
+                    <h3>The "Data Overload" Discovery</h3>
+                    <p>
+                        The concept resonated immediately, achieving a high <strong>87.8 SUS Score</strong>. However, testing revealed two critical friction points that I had to address:
+                    </p>
+                    
+                    <div class="insight-box">
+                        <h4>Key Iterations from Feedback</h4>
+                        <ul class="feature-list">
+                            <li>
+                                <strong>Text over Trends:</strong> My initial detailed line charts caused cognitive overload. Users hesitated to interpret x/y axes, so I added plain-text summaries like <em>"Good match for the next 4 hours"</em>.
+                            </li>
+                            <li>
+                                <strong>The "Occupancy" Gap:</strong> Users flagged a major logic hole: finding a "perfect" spot is useless if it's already taken. I added "Live Availability" status indicators to the final UI to solve this.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="image-content usability-stack">
+                    <figure>
+                        <img src="Images/image_fdfee7.png" alt="Full set of paper wireframes laid out on a table for testing" class="shadow-img" style="object-fit: cover; object-position: top; max-height: 300px;">
+                    </figure>
+                    <figure>
+                        <img src="Images/image_fdfe8b.png" alt="User pointing at the prototype during a testing session" class="shadow-img" style="object-fit: cover; object-position: bottom; max-height: 300px;">
+                        <figcaption class="caption">
+                            <strong>From paper to insight:</strong> Observing real-time user hesitation on specific screens (bottom) helped me pivot the design before development.
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section id="design" class="content-block experience-spotlight">
+                <div class="text-content centered-text">
+                    <h2>The Experience Flow</h2>
+                    <p class="subtitle-text">
+                        The final result: A "matchmaker" loop that takes user input and returns personalized space recommendations instantly.
+                    </p>
+                    
+                    <div class="flow-steps">
+                        <div class="step-item">
+                            <span class="step-number">01</span>
+                            <h3>Set Priorities</h3>
+                            <p>A short quiz asks about activity (Focus vs. Collab) and sensory preferences.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">02</span>
+                            <h3>Get Matched</h3>
+                            <p>The system compares preferences against historic IEQ data to rank the top 3 zones.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">03</span>
+                            <h3>View Forecast</h3>
+                            <p>Interactive charts show how conditions will change over the next few hours.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-content full-width-banner">
+                    <img src="Images/image_fd8a70.png" alt="High fidelity mobile screens showing the preference quiz and recommendation engine">
+                </div>
+            </section>
+
+            <section id="implementation" class="content-block reverse">
+                <div class="text-content">
+                    <h2>Impact & Implementation</h2>
+                    <p>
+                        This wasn't just a design concept. I built the fully functional, responsive web application using <strong>HTML5, CSS3, and JavaScript (ES6)</strong>.
+                    </p>
+                    
+                    <h3>The Engineering Challenge</h3>
+                    <p>
+                        The core challenge was translating static CSV sensor data into a live recommendation engine without a heavy backend.
+                    </p>
+                    <ul class="feature-list">
+                        <li><strong>Data Visualisation:</strong> leveraged <strong>Plotly.js</strong> to render interactive charts that map user comfort zones against specific time blocks.</li>
+                        <li><strong>Client-Side Logic:</strong> Wrote custom JavaScript to fetch and parse raw CSV files (`samba_noise.csv`, `samba_TA.csv`) directly in the browser.</li>
+                        <li><strong>Algorithm:</strong> Developed a scoring function that normalizes disparate metrics (Lux, dB, °C) into a single "Comfort Match" score.</li>
+                    </ul>
+
+                    <div class="outcome-stats">
+                        <div class="stat-box">
+                            <span class="stat-number">Serverless</span>
+                            <span class="stat-label">Data Processing</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">Mobile friendly</span>
+                            <span class="stat-label">Responsive Layout</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-content">
+                    <div class="tech-stack-card">
+                        <div class="code-header">
+                            <div class="window-controls">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="filename">script.js (Data Fetch & Plotly Logic)</span>
+                        </div>
+                        <pre class="code-block"><code>// 1. Fetch raw CSV data directly
+async function loadData() {
+    const response = await fetch('data/samba_noise.csv');
+    const data = await response.text();
+    // Custom parser logic here...
+}
+
+// 2. Plotly Visualization
+Plotly.newPlot('chartDiv', [{
+    x: timeLabels,
+    y: noiseLevels,
+    type: 'scatter',
+    line: {shape: 'spline', color: '#7c3aed'}
+}], layoutConfig);</code></pre>
+                        <div class="tech-labels">
+                            <span class="tech-tag">JavaScript ES6</span>
+                            <span class="tech-tag">Plotly.js</span>
+                            <span class="tech-tag">CSV Parsing</span>
+                        </div>
+                    </div>
+
+                    <p class="code-caption">
+                        <strong>Code Snapshot:</strong>
+                        This sample shows the actual client-side logic powering the IEQ dashboard which includes the raw CSV data fetching, parsing, and Plotly.js chart rendering and demonstrating that the system was fully implemented, not just prototyped.
+                    </p>
+                </div>
+            </section>
+
+            <section id="visual-identity" class="content-block">
+                <div class="text-content">
+                    <h2>Visual Identity & Design System</h2>
+                    <p>
+                        The interface needed to be functional yet calming. I established a design system that separates "data" from "action."
+                    </p>
+                    <ul class="feature-list">
+                        <li><strong>Primary Theme:</strong> I used a deep purple (#764ba2) to convey professionalism, avoiding the urgency often associated with red or stark black-and-white enterprise tools.</li>
+                        <li><strong>Data Semantics:</strong> Instead of a standard "Red/Green" (Danger/Safe) scale, I implemented a "Cool-to-Warm" gradient in Plotly.js to represent temperature and light preferences neutrally.</li>
+                        <li><strong>Typography:</strong> 'Open Sans' was used for the headers and body text as it is a very popular font and legible for web-apps.</li>
+                    </ul>
+                </div> 
+                <div class="image-content">
+                    <figure>
+                        <img src="Images/visual-identity-styleguide.png" alt="Style tile showing the purple color palette, Inter typography, and UI card components" style="border: 1px solid #eee;">
+                        <figcaption class="caption">
+                            <strong>Design System Snapshot:</strong> Translating the "Calm Professional" concept into reusable UI tokens.
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section id="final-showcase" class="final-showcase-section">
+                <div class="final-product-header">
+                    <h2>The Final Product</h2>
+                    <p class="subtitle-text">
+                        A responsive, browser-based application that turns environmental data into actionable comfort.
+                    </p>
+                </div>
+
+                <div class="final-gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-text">
+                            <h3>01. Intuitive Onboarding</h3>
+                            <p>Simple, human-readable questions replace complex filter menus. Users set preferences for Light, Noise, and Temperature in under 30 seconds.</p>
+                        </div>
+                        <div class="gallery-image-wrapper">
+                            <img src="Images/onboarding-flow-ui.jpeg" alt="User flow showing the three-step onboarding process">
+                        </div>
+                    </div>
+
+                    <div class="gallery-item full-width-showcase">
+                        <div class="gallery-text">
+                            <h3>02. Smart Recommendations</h3>
+                            <p>The core "Matchmaker" engine. Zones are ranked by a weighted 'Comfort Score' (5-star comfort rating). The "Best Match" is highlighted with clear reasoning.</p>
+                        </div>
+                        <div class="gallery-image-wrapper">
+                            <img src="Images/image_58adb0.png" alt="Recommendation Results Screen">
+                        </div>
+                    </div>
+                </div> 
+
+                <section id="booking-flow" class="visual-flow-section">
+                    <div class="visual-flow-header">
+                        <h3 class="final-feature-title">03. IEQ Booking &amp; Visualisation Flow</h3>
+                        <p class="final-feature-subtitle">
+                          Once users find a promising zone, the system guides them through a
+                          simple three-step flow that combines visualisation and action.
+                        </p>
+                    </div>
+
+                    <div class="visual-flow-steps">
+                        <div class="visual-step">
+                            <span class="visual-step-chip">Step 1</span>
+                            <h3>Select Best-Match Zone</h3>
+                            <p>Users review their recommended zones with floor-plan highlights and photos.</p>
+                        </div>
+
+                        <div class="visual-step">
+                            <span class="visual-step-chip">Step 2</span>
+                            <h3>Visualise IEQ Forecast</h3>
+                            <p>Forecast charts display expected light and temperature overlaid with preferences.</p>
+                        </div>
+
+                        <div class="visual-step">
+                            <span class="visual-step-chip">Step 3</span>
+                            <h3>Confirm Booking</h3>
+                            <p>A clear confirmation screen summarises booking details.</p>
+                        </div>
+                    </div>
+
+                    <div class="visual-flow-image">
+                        <figure class="visual-flow-figure">
+                            <img src="Images/Forecast-Visualization.jpeg" alt="Three-screen booking flow">
+                            <figcaption class="caption">
+                                Office IEQ Booking System: From personalised zone selection to booking confirmation.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <div class="demo-cta">
+                    <a href="https://findyourbestspot.netlify.app/" target="_blank" class="live-demo-btn primary">
+                        🚀 Launch Live Prototype
+                    </a>
+                </div>
+            </section>
+
+            <div class="project-navigation">
+                <a href="OlympiOS.html" class="next-project">
+                    <span class="label">Next Project</span>
+                    <h3>OlympiOS – Wearable Spectator Experience &rarr;</h3>
+                </a>
+            </div>
+
+        </main>
+
+        <footer id="contact">
+            <div class="footer-content">
+                <p>&copy; 2025 Lisa Mithani. Crafted with code and empathy.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Key = The ID of the section you are scrolling through
+            // Value = The href of the nav button you want to light up
+            const sectionMap = {
+                'context': '#context',
+                'research': '#research',
+                'strategy': '#research',       // Strategy -> Lights up "Research"
+                'validation': '#research',     // Validation -> Lights up "Research"
+                'design': '#design',
+                'implementation': '#implementation', // Tech -> Lights up "Tech"
+                'visual-identity': '#visual-identity', // Outcome -> Lights up "Outcome"
+                'final-showcase': '#visual-identity',  // Final Showcase -> Lights up "Outcome"
+                'booking-flow': '#visual-identity'     // Booking Flow -> Lights up "Outcome"
+            };
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-30% 0px -60% 0px', // Active zone is near the top-middle of screen
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        const targetHref = sectionMap[id] || '#' + id;
+
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        
+                        const activeLink = document.querySelector(`.nav-link[href="${targetHref}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

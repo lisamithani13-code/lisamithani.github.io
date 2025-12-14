@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone Parameter Forecast - Find Your Best Spot</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="zone_forecast.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="forecast-page-layout">
+    <header class="header fybs-header">
+        <div class="header-container fybs-header-container">
+            <div class="logo-section fybs-logo-section">
+                <img src="images/Logo.png" alt="Find Your Best Spot Logo" class="app-logo fybs-app-logo">
+                <div class="brand-name fybs-brand-name">Find Your Best Spot</div>
+            </div>
+            
+            <nav class="nav-menu fybs-nav-menu" id="navMenu">
+                <ul>
+                    <li class="nav-item fybs-nav-item">
+                        <a href="index.html" class="nav-link fybs-nav-link">Home</a>
+                    </li>
+                    <li class="nav-item fybs-nav-item">
+                        <a href="results.html" class="nav-link fybs-nav-link">Results</a>
+                    </li>
+                    <li class="nav-item fybs-nav-item">
+                        <a href="index.html#about-app-section" class="nav-link fybs-nav-link">About</a>
+                    </li>
+                    <li class="nav-item fybs-nav-item">
+                        <a href="index.html#contact-us" class="nav-link fybs-nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions fybs-header-actions">
+                <button class="icon-button fybs-icon-button" title="Search" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-button fybs-icon-button" title="Notifications" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="profile-button fybs-profile-button" title="Profile" aria-label="View profile">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="mobile-menu-toggle fybs-mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <div class="hamburger fybs-hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="forecast-container">
+        <div class="forecast-header">
+            <h1 class="forecast-title" id="forecastZoneTitle">Zone Forecast</h1>
+            <a href="results.html" class="back-button" id="forecastBackBtn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Results
+            </a>
+        </div>
+
+        <!-- Enhanced Overall Suitability Card -->
+        <div id="consolidatedSummaryCard" class="parameter-card">
+            <div class="parameter-header">
+                <div id="consolidatedSummaryTitle" class="parameter-title-main" style="color: var(--primary-color);">
+                    <i class="fas fa-clipboard-check parameter-icon" style="background: none; font-size:1.3em;"></i>
+                    Overall Suitability Forecast
+                </div>
+                <div class="legend-context-hint">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Hover to explore your comfort match across the day</span>
+                </div>
+            </div>
+            <div id="consolidatedSummaryContent" style="padding: 15px 20px; font-size: 0.9rem; line-height: 1.6;">
+                <p class="loading-message">Analyzing overall forecast...</p>
+            </div>
+        </div>
+
+        <!-- Enhanced Light Forecast Card -->
+        <div class="parameter-card">
+            <div class="parameter-header">
+                <div class="parameter-title-main">
+                    <div class="parameter-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    Light Forecast
+                </div>
+                <div id="lightUserPref" class="preference-indicator" style="display: none;">
+                </div>
+                <div id="lightAnalysisSummary" class="summary-text" style="margin-top: 8px; font-size:0.9rem;">
+                </div>
+                <div class="legend-context-hint">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <span>Hover over chart points to see detailed lighting values</span>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div id="lightChart">
+                     <p class="loading-message">Loading Light Data...</p>
+                </div>
+            </div>
+            
+            <div class="preferred-range-legend">
+                <div class="legend-title">Chart Guide:</div>
+                <div class="legend-item">
+                    <div class="legend-line in-range"></div> <span>Predicted Light</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-area"></div>
+                    <span>Your Preferred Range</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-office-hours"></div>
+                    <span>Office Hours (9AM-5PM)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Temperature Forecast Card -->
+        <div class="parameter-card">
+            <div class="parameter-header">
+                <div class="parameter-title-main">
+                    <div class="parameter-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    Temperature Forecast
+                </div>
+                <div id="tempUserPref" class="preference-indicator" style="display: none;">
+                </div>
+                <div id="tempAnalysisSummary" class="summary-text" style="margin-top: 8px; font-size:0.9rem;">
+                </div>
+                <div class="legend-context-hint">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <span>Compare ambient vs feels-like temperature throughout the day</span>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div id="temperatureChart">
+                    <p class="loading-message">Loading Temperature Data...</p>
+                </div>
+            </div>
+            
+            <div class="preferred-range-legend">
+                <div class="legend-title">Chart Guide:</div>
+                <div class="legend-item">
+                    <div class="legend-line in-range"></div>
+                    <span>Ambient Temp.</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line out-of-range"></div> 
+                    <span>Feels Like Temp.</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-area"></div>
+                    <span>Your Preferred Range</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-office-hours"></div>
+                    <span>Office Hours (9AM-5PM)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Noise Forecast Card -->
+        <div class="parameter-card">
+            <div class="parameter-header">
+                <div class="parameter-title-main">
+                    <div class="parameter-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    Noise Forecast
+                </div>
+                <div id="noiseUserPref" class="preference-indicator" style="display: none;">
+                </div>
+                <div id="noiseAnalysisSummary" class="summary-text" style="margin-top: 8px; font-size:0.9rem;">
+                </div>
+                <div class="legend-context-hint">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <span>Track noise levels for your work type preferences</span>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div id="noiseChart">
+                    <p class="loading-message">Loading Noise Data...</p>
+                </div>
+            </div>
+            
+            <div class="preferred-range-legend">
+                <div class="legend-title">Chart Guide:</div>
+                <div class="legend-item">
+                    <div class="legend-line in-range"></div>
+                    <span>Predicted Noise</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-area"></div>
+                    <span>Your Preferred Range</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-office-hours"></div>
+                    <span>Office Hours (9AM-5PM)</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="page-footer">
+        <p>&copy; <span id="currentYearForecast"></span> Find Your Best Spot. All rights reserved.</p>
+        <p>
+            <a href="index.html#contact-us">Contact Us</a> | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a>
+        </p>
+    </footer>
+
+    <div class="overlay"></div>
+
+    <script src="zone_forecast.js"></script>
+    <script src="script.js"></script> 
+</body>
+</html>

@@ -283,7 +283,7 @@ a:hover {
 .hero-main {
   display: grid;
   grid-template-columns: auto 1fr;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-2xl, 48px);
   margin-bottom: var(--space-3xl);
 }
@@ -299,6 +299,15 @@ a:hover {
   object-fit: cover;
   display: block;
   box-shadow: var(--shadow-lg);
+  filter: 
+    saturate(1.05)
+    brightness(1.02)
+    sepia(0.04);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.hero-photo img:hover {
+  transform: scale(1.02);
 }
 
 .hero-content {
@@ -442,11 +451,16 @@ a:hover {
 
 .projects-grid-ai {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl);
   margin-bottom: var(--space-xl);
 }
-
+/* ADD THIS MEDIA QUERY directly below it to ensure it stacks on mobile */
+@media (max-width: 768px) {
+  .projects-grid-ai {
+    grid-template-columns: 1fr;
+  }
+}
 .project-card-ai {
   background: white;
   border-radius: 20px;
@@ -1052,6 +1066,20 @@ a:hover {
   transform: translateX(6px);
 }
 
+/* Update this existing class to handle different aspect ratios better */
+.project-ui-preview img {
+    /* existing styles... */
+    object-fit: contain; /* Ensures the pipeline diagram doesn't get cropped */
+}
+
+/* Optional: Add a specific tweak for the mRNA card if the diagram looks too small */
+/* Ensure diagrams contain within the preview box without cropping */
+[data-project="mrna-ml"] .ui-snapshot,
+[data-project="mrna-ml"] .ui-hover-gif {
+    object-fit: contain; 
+    border-radius: 6px;
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: var(--color-bg-dark);
@@ -1274,7 +1302,7 @@ a:hover {
   
   .hero { padding: 100px 0 var(--space-2xl); min-height: auto; }
   .hero-main { text-align: center; }
-  .hero-photo { order: -1; margin: 0 auto var(--space-xl); }
+  .hero-photo { order: -1; margin: 0 auto var(--space-xl); margin-top: -8px; align-self: flex-start;transform: translateY(4px); }
   .hero-cta { justify-content: center; }
 
   .skills-panel, .personal-facts, .form-row {
@@ -1296,3 +1324,4 @@ a:hover {
     gap: var(--space-md);
   }
 }
+

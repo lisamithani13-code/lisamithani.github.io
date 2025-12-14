@@ -1,0 +1,2294 @@
+/*
+    Find Your Best Spot App - Main Stylesheet
+    ------------------------------------------
+    This stylesheet defines the visual appearance of the application,
+    including layout, typography, color schemes, and responsiveness.
+*/
+
+/* --- Section: 0. CSS Variables (Root) --- */
+/* Purpose: Defines the global color palette, gradients, and consistent spacing units or font sizes. */
+:root {
+    /* Primary Palette */
+    --primary-purple: #764ba2; /* Main active elements */
+    --secondary-purple-indigo: #667eea; /* Gradients, accents */
+    --light-purple-lavender: #f4f0f8; /* Backgrounds, hovers */
+    --border-purple: #dcd3e9; /* Borders */
+
+    /* Gradients */
+    --app-gradient: linear-gradient(135deg, var(--secondary-purple-indigo), var(--primary-purple));
+
+    /* RGB Versions for Opacity */
+    --primary-rgb: 118, 75, 162;
+    --secondary-rgb: 102, 126, 234;
+    --text-primary-rgb: 44, 62, 80; /* RGB for --text-primary */
+
+    /* UI Colors & States */
+    --inactive-grey: #e0e0e0; /* Inactive progress steps */
+    --inactive-text-grey: #757575; /* Text on inactive steps */
+    --danger-color: #e53e3e;
+    --info-blue: var(--secondary-purple-indigo);
+
+    /* Semantic Aliases (can be overridden for theming) */
+    --primary-color: var(--primary-purple);
+    --secondary-color: var(--secondary-purple-indigo);
+    --light-color: var(--light-purple-lavender);
+    --accent-color: var(--secondary-purple-indigo);
+    --border-light: var(--border-purple);
+
+    /* Typography & Layout */
+    --text-primary: #2c3e50;
+    --text-secondary: #5a6772;
+    --background-default: #fbfaff;
+    --background-paper: #FFFFFF;
+    --header-height: 70px;
+}
+
+/* --- Section: 1. Global Resets & Defaults --- */
+/* Purpose: Establishes a consistent baseline for styling across all browsers and elements. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-default);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Section: 2. Header Styles --- */
+/* Purpose: Styles for various application headers, including navigation and branding. */
+
+/* A. General Header (Quiz Pages & Simple Internal Pages) */
+body > header:not(.fybs-header) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: var(--background-paper);
+    height: var(--header-height);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+body > header:not(.fybs-header) .header-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+body > header:not(.fybs-header) .app-logo {
+    max-height: 32px;
+}
+
+body > header:not(.fybs-header) .app-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+body > header:not(.fybs-header) .back-btn,
+body > header:not(.fybs-header) .profile-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #f8f9fa;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    padding: 0;
+    position: relative; 
+    z-index: 1;
+}
+
+body > header:not(.fybs-header) .back-btn:hover,
+body > header:not(.fybs-header) .profile-btn:hover {
+    background: var(--light-color);
+    transform: translateY(-1px);
+    color: var(--primary-color);
+}
+
+body > header:not(.fybs-header) .profile-btn {
+    background: var(--app-gradient);
+    color: white;
+}
+body > header:not(.fybs-header) .profile-btn:hover { 
+    filter: brightness(1.1);
+    color: white;
+}
+
+/* B. FYBS Header (Landing Page, Results, etc.) */
+.fybs-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: var(--header-height); 
+    transition: transform 0.3s ease-in-out; 
+}
+
+.fybs-header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.fybs-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fybs-app-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.fybs-brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.fybs-nav-menu { /* Desktop navigation menu */
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.fybs-nav-menu ul { /* In case of nested ul, though current structure is flat */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem; 
+}
+
+.fybs-nav-item {
+    position: relative;
+}
+
+.fybs-nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    padding: 8px 0; 
+    position: relative;
+}
+
+.fybs-nav-link:hover {
+    color: var(--secondary-color);
+}
+
+.fybs-nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.fybs-nav-link.active::after { 
+    content: '';
+    position: absolute;
+    bottom: -2px; 
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: var(--primary-color);
+    border-radius: 1px;
+}
+
+.fybs-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.fybs-icon-button,
+.fybs-profile-button { /* Shared styles for action buttons */
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 18px;
+}
+
+.fybs-icon-button {
+    background: #f8f9fa;
+    color: var(--text-secondary);
+}
+.fybs-icon-button:hover {
+    background: var(--light-color);
+    transform: translateY(-1px);
+    color: var(--primary-color);
+}
+
+.fybs-profile-button {
+    background: var(--app-gradient);
+    color: white;
+}
+.fybs-profile-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    
+}
+
+/* Mobile Menu Toggle (Hamburger) */
+.fybs-mobile-menu-toggle {
+    display: none; /* Shown via media query */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001; /* Above nav menu before it's active */
+}
+
+.fybs-hamburger {
+    width: 24px;
+    height: 20px;
+    position: relative;
+}
+
+.fybs-hamburger span { /* Hamburger lines */
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--text-primary);
+    border-radius: 2px;
+    position: absolute;
+    left:0;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.fybs-hamburger span:nth-child(1) { top: 0; }
+.fybs-hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.fybs-hamburger span:nth-child(3) { bottom: 0; }
+
+/* Hamburger active state (X icon) */
+.fybs-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.fybs-hamburger.active span:nth-child(2) { opacity: 0; }
+.fybs-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* C. Original/General Sidebar Menu Styles */
+.sidebar-menu { /* For a different sidebar system if used */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--background-paper);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-250px); /* Hidden by default */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1050; /* Very high z-index */
+    overflow-y: auto;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-menu.visible { transform: translateX(0); }
+
+.sidebar-menu .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px 20px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 10px;
+}
+.sidebar-menu .menu-title { margin: 0; font-size: 1.2em; color: var(--primary-color); }
+.sidebar-menu .close-menu-btn { background: none; border: none; font-size: 1.5em; cursor: pointer; color: var(--primary-color); padding: 5px; }
+
+.sidebar-menu ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+.sidebar-menu li a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.1em;
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.sidebar-menu li a:hover { background-color: var(--light-color); color:var(--primary-color); }
+
+/* D. Overlay for Menus */
+.overlay { /* Used by both FYBS mobile menu and general sidebar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998; /* Below mobile menus, above page content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.overlay.visible { opacity: 1; visibility: visible; }
+body.menu-active { overflow: hidden; } /* Prevent page scroll when a menu is open */
+
+/* --- Section: 3. Main Content Area & Common Elements --- */
+/* Purpose: Defines basic layout for main content sections and common reusable components. */
+main {
+    flex-grow: 1; /* Ensures main content takes available space, pushing footer down */
+    width: 100%;
+    padding-top: var(--header-height); /* Default top padding for fixed header */
+}
+.hero-main-content { /* Specific to landing page hero, overrides default padding-top */
+    padding-top: 0;
+    margin-top: 0; /* Ensures hero starts at the very top */
+}
+.content-container { /* General container for centered content */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+.contact-section { /* Example of a common section style */
+    padding: 60px 20px;
+    background-color: var(--light-color);
+    text-align: center;
+}
+.contact-section h2 { color: var(--primary-color); margin-bottom: 20px;}
+.contact-section p { color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; }
+.contact-section a { color: var(--secondary-color); text-decoration: none; }
+.contact-section a:hover { text-decoration: underline; }
+
+/* --- Section: 4. Landing Page Hero Section --- */
+/* Purpose: Styles for the main hero section on the landing page. */
+.hero-main-content { /* This is also defined in Section 3, ensure consistency or specificity */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+    background-image: url('images/office-background.jpg'); /* Ensure path is correct */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+}
+.hero-main-content::before { /* Gradient overlay for the hero background image */
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(var(--secondary-rgb), 0.65), rgba(var(--primary-rgb), 0.75));
+    z-index: 1;
+}
+.background-pattern-overlay { /* Subtle pattern over the gradient */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.08;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1.5" fill="white"/><circle cx="75" cy="75" r="1.5" fill="white"/></svg>');
+    background-size: 60px 60px;
+    z-index: 2;
+}
+.fybs-welcome-card { /* Content card within the hero section */
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    max-width: 520px;
+    width: 90%; /* Responsive width */
+    position: relative;
+    z-index: 3; /* Above overlays */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.fybs-welcome-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: var(--app-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Gradient text */
+}
+.fybs-welcome-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    line-height: 1.5;
+}
+.fybs-welcome-subtitle span[role="img"] { /* Emoji styling if used */
+    font-size: 1.5em;
+}
+.fybs-get-started-btn { /* Primary call-to-action button */
+    background: var(--app-gradient);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(var(--secondary-rgb), 0.25);
+}
+.fybs-get-started-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(var(--secondary-rgb), 0.35);
+}
+.fybs-get-started-btn i { /* Icon within button */
+    transition: transform 0.3s ease;
+}
+.fybs-get-started-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* --- Section: 5. About Page Section Styles (index.html) --- */
+/* Purpose: Specific styles for content on the About page/section. */
+.about-section {
+    background-color: var(--background-paper);
+    padding: 4rem 0 3rem 0;
+}
+.about-content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: left;
+}
+.about-section h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+}
+.about-section h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1.8rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.3rem;
+    display: inline-block; /* For border-bottom to fit content */
+}
+.about-section h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    text-align: left;
+}
+.about-section p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+.about-section .intro-paragraph {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+.about-section .emphasis-paragraph { /* For highlighted text blocks */
+    font-style: normal;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--light-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+}
+.about-section .emphasis-paragraph strong {
+    color: var(--primary-color);
+}
+.about-section ul,
+.about-section ol {
+    margin-left: 0; /* Reset default browser indent */
+    padding-left: 1.75rem; /* Custom indent */
+    margin-bottom: 1.5rem;
+}
+.about-section ul li,
+.about-section ol li {
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+.about-section ul li::marker { /* Style list bullets */
+    color: var(--primary-color);
+}
+
+/* IEQ (Indoor Environmental Quality) Factors Grid */
+.ieq-factors-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+.ieq-factor-item {
+    display: flex;
+    align-items: flex-start; /* Align icon and text to the top */
+    background-color: var(--background-paper);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-left: 3px solid transparent; /* For hover effect */
+    transition: border-left-color 0.3s ease;
+}
+.ieq-factor-item:hover {
+    border-left-color: var(--secondary-color);
+}
+.ieq-icon-container {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-right: 1.25rem;
+    padding-top: 0.1em; /* Fine-tune vertical alignment */
+    min-width: 2em; /* Ensure consistent spacing */
+    text-align: center;
+}
+.ieq-text-content h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+}
+.ieq-text-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* "How It Works" Section List */
+.how-it-works-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+.how-it-works-list > li {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+}
+.how-it-works-image-wrapper {
+    flex: 0 0 160px; /* Fixed width for image container */
+}
+.how-it-works-placeholder-container { /* If using placeholder images */
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+.how-it-works-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Match container if image is direct child */
+}
+.how-it-works-text-content h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+.how-it-works-text-content p {
+    margin-bottom: 0;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem 0;
+}
+.benefit-item {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.benefit-item h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* Call to Action Links in About Section */
+.about-cta-links {
+    margin-top: 2.5rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background-color: var(--light-color);
+    border-radius: 8px;
+}
+.about-cta-links p {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+.cta-link { /* General CTA link style */
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    margin: 0.5rem;
+    transition: all 0.2s ease;
+}
+.primary-cta {
+    background: var(--app-gradient);
+    color: #FFFFFF;
+    border: 1px solid transparent;
+}
+.primary-cta:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.secondary-cta {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.secondary-cta:hover {
+    background-color: var(--light-color); /* Use theme light color */
+    /* color: var(--primary-color); */ /* Already set */
+    /* border-color: var(--primary-color); */ /* Already set */
+    transform: translateY(-2px);
+}
+
+/* --- Section: 6. Quiz Page Styles --- */
+/* Purpose: Styles for the quiz interface, including progress indicators and option selection. */
+.quiz-page-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    flex-grow: 1; /* Ensure it takes available height */
+    background-color: var(--background-default);
+}
+.quiz-container {
+    background-color: var(--background-paper);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Constrain width */
+    text-align: center;
+    position: relative;
+}
+.progress-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    gap: 8px; /* Space between steps and lines */
+}
+.progress-indicator .step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--inactive-grey);
+    color: var(--inactive-text-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none; /* Remove default border if any */
+    transition: all 0.3s ease;
+}
+.progress-indicator .step.active {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+}
+.progress-indicator .step.completed {
+    background-color: var(--primary-color); /* Or a different color for completed, e.g., a lighter primary */
+    color: #FFFFFF;
+}
+.progress-indicator .step-line {
+    height: 2px;
+    width: 30px; /* Adjust width as needed */
+    background-color: var(--inactive-grey);
+}
+.progress-indicator .step-line.filled {
+    background-color: var(--primary-color);
+}
+.quiz-question {
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.instruction-text { /* Supporting text below question */
+    font-size: 0.9em;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    text-align: left; /* Often better for readability of instructions */
+}
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+.radio-option {
+    display: flex;
+    align-items: center;
+    position: relative; /* For preview content positioning */
+    cursor: pointer;
+    border: 1px solid var(--border-light);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    background-color: var(--background-paper);
+    transition: all 0.25s ease-in-out;
+}
+.radio-option input[type="radio"] { /* Custom radio button style */
+    appearance: none;
+    -webkit-appearance: none; /* For Safari */
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-purple);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    margin-right: 12px;
+    flex-shrink: 0; /* Prevent shrinking if label text is long */
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.radio-option input[type="radio"]::before { /* Inner dot of custom radio */
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Hidden by default */
+    transition: transform 0.2s ease;
+}
+.radio-option input[type="radio"]:checked {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+.radio-option input[type="radio"]:checked::before {
+    transform: translate(-50%, -50%) scale(1); /* Show dot when checked */
+}
+.radio-option label {
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    cursor: pointer;
+    flex-grow: 1; /* Label takes remaining space */
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    transition: color 0.25s ease-in-out;
+}
+.radio-option label i, /* Icon styling */
+.radio-option label .option-icon {
+    margin-right: 0.6rem;
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    min-width: 18px; /* Consistent icon spacing */
+    text-align: center;
+    transition: color 0.25s ease-in-out;
+}
+.radio-option:hover {
+    border-color: var(--secondary-color);
+    background-color: var(--light-color);
+}
+.radio-option:hover label,
+.radio-option:hover label i,
+.radio-option:hover label .option-icon {
+    color: var(--primary-color);
+}
+
+/* Checked state using :has for modern browsers (enhances UX) */
+.radio-option:has(input[type="radio"]:checked) {
+    background: var(--app-gradient);
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.2);
+}
+.radio-option:has(input[type="radio"]:checked) label,
+.radio-option:has(input[type="radio"]:checked) label i,
+.radio-option:has(input[type="radio"]:checked) label .option-icon {
+    color: #FFFFFF;
+    font-weight: 500; /* Or bold if preferred */
+}
+.radio-option:has(input[type="radio"]:checked) input[type="radio"]:checked {
+    background-color: #FFFFFF; /* Outer circle of radio */
+    border-color: #FFFFFF;
+}
+.radio-option:has(input[type="radio"]:checked) input[type="radio"]:checked::before {
+    background-color: var(--primary-color); /* Inner dot color */
+}
+
+/* Preview content on hover (desktop) */
+.preview-content {
+    display: block; /* Hidden by opacity/visibility initially */
+    position: absolute;
+    width: 260px; /* Adjust as needed */
+    z-index: 20; /* Above other options */
+    background-color: var(--background-paper);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    top: 0; /* Align with top of radio option */
+    left: calc(100% + 15px); /* Position to the right */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px); /* Initial offset for transition */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+.radio-option:hover .preview-content { /* Show on hover */
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    pointer-events: auto; /* Allow interaction when visible */
+}
+.preview-content .preference-preview-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 140px; /* Limit image height */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.preview-content .preference-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: 0;
+    text-align: left;
+}
+.quiz-navigation {
+    display: flex;
+    justify-content: flex-end; /* Align next button to the right */
+    margin-top: 2rem;
+}
+.next-btn { /* Next button styling */
+    background-color: var(--inactive-grey);
+    color: var(--inactive-text-grey);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: not-allowed; /* Default for disabled state */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 1; /* Ensure visible */
+}
+.next-btn:disabled { /* Explicit disabled state */
+    cursor: not-allowed;
+    /* Styles for disabled state are covered by default .next-btn unless active */
+}
+.next-btn:not(.next-btn-active):hover { /* Hover for inactive button */
+    background-color: var(--inactive-grey);
+    color: var(--inactive-text-grey);
+    box-shadow: none;
+    transform: none;
+}
+.next-btn.next-btn-active { /* Active (enabled) button */
+    background: var(--app-gradient);
+    color: #FFFFFF;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
+    opacity: 1;
+}
+.next-btn.next-btn-active:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.4);
+}
+.next-btn i {
+    font-size: 0.9em; /* Icon size relative to button text */
+    margin-left: 4px;
+}
+
+/* --- Section: 7. Loading Page Styles --- */
+/* Purpose: Styles for the intermediate loading page shown during data processing. */
+.loading-page-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    flex-grow: 1;
+    min-height: calc(100vh - var(--header-height)); /* Full viewport height minus header */
+    position: relative;
+    overflow: hidden; /* For background effects if any */
+    background: linear-gradient(135deg, var(--light-color) 0%, var(--background-default) 100%);
+}
+.loading-container {
+    background-color: var(--background-paper);
+    padding: 2.5rem 2rem;
+    border-radius: 10px; /* Softer radius */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* For z-indexing if needed */
+    z-index: 2;
+}
+.loading-container h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+.preferences-summary { /* Display of user's selected preferences */
+    text-align: left;
+    margin-bottom: 2rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 380px; /* Constrain width for better readability */
+    background-color: #fcfdff; /* Slightly off-white */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 3; /* Above container's z-index if needed */
+}
+.preferences-summary p { /* Title for preferences summary */
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.8rem;
+}
+.preferences-summary ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.8rem;
+    margin-bottom: 0; /* Remove bottom margin if last element */
+}
+.preferences-summary li {
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+}
+.preferences-summary li i.preference-icon {
+    margin-right: 1rem;
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    min-width: 20px; /* Consistent icon alignment */
+    text-align: center;
+}
+.preferences-summary li .preference-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: var(--text-secondary);
+    min-width: 110px; /* Align values */
+}
+.preferences-summary li .preference-value {
+    font-weight: 600;
+    color: var(--primary-color);
+    flex-grow: 1; /* Take remaining space */
+}
+.loading-animation-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 3;
+}
+.spinner { /* Loading spinner animation */
+    border: 8px solid #f3f3f3; /* Light grey track */
+    border-top: 8px solid var(--primary-color); /* Primary color spinner */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.2s linear infinite;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.2);
+}
+.loading-text {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 0; /* No margin if it's the last element */
+}
+.floating-emoji-bg { display: none; } /* Potentially for future background effects, currently unused */
+
+/* --- Section: 8. Results Page Styles --- */
+/* Purpose: Styles for displaying recommendations and user preferences on the results page. */
+body.results-page main.results-page-main-content {
+    padding-top: calc(var(--header-height) + 2rem); /* Account for fixed header and add space */
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    width: 100%;
+}
+.results-page-title-container {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem; /* Horizontal padding for smaller screens */
+}
+.results-page-title-container h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+.results-page-title-container .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px; /* Constrain subtitle width */
+    margin: 0 auto;
+}
+.your-preferences.results-page-preferences { /* User's selected preferences display */
+    background-color: var(--background-paper);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.08);
+    width: 100%;
+    max-width: 800px; /* Max width for this section */
+    border: 1px solid var(--border-light);
+}
+.results-page-preferences .preferences-title {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+.results-page-preferences .preferences-grid { /* Grid for individual preference items */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 1rem;
+}
+.results-page-preferences .preference-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-color);
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    min-height: auto; /* Allow height to adjust to content */
+}
+.results-page-preferences .preference-item .preference-icon {
+    background-color: rgba(var(--secondary-rgb), 0.15); /* Icon background */
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem; /* Icon size */
+    margin-right: 10px;
+    color: var(--secondary-color); /* Icon color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent icon shrinking */
+}
+.results-page-preferences .preference-detail h4 { /* Preference type (e.g., Lighting) */
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+.results-page-preferences .preference-detail p { /* Selected preference value */
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    line-height: 1.3;
+}
+.recommendations { /* General container for recommendation cards */
+    display: flex;
+    flex-direction: row; /* Default to horizontal layout */
+    justify-content: center; /* Center cards if they don't fill the row */
+    flex-wrap: wrap; /* Allow cards to wrap to next line */
+    gap: 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+.recommendations.results-page-recommendations { /* Specific for results page card layout */
+    max-width: 1040px; /* Max width for the recommendations area */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem; /* Padding on smaller viewports */
+}
+.recommendation-card {
+    background: var(--background-paper);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure content stays within rounded corners */
+    width: 300px; /* Fixed width for cards in a row */
+    transition: all 0.3s ease;
+    position: relative; /* For badge positioning */
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column; /* Stack image, content, button */
+}
+.recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.card-image {
+    height: 160px; /* Fixed height for card images */
+    overflow: hidden;
+    position: relative; /* For potential overlays on image */
+    background-color: var(--light-color); /* Fallback if image fails */
+}
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the area nicely */
+}
+.best-choice { /* Special border for the top recommendation */
+    border: 3px solid var(--accent-color);
+}
+.best-choice-badge { /* "Best Match" badge */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px; /* Pill shape */
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 1; /* Above card image */
+}
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allow content to take available space */
+    display: flex;
+    flex-direction: column; /* Ensure rating and button are at bottom */
+}
+.zone-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+.environment-info {
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Push rating section down */
+}
+.info-item { /* Individual info line (e.g., Light, Noise) */
+    display: flex;
+    align-items: flex-start; /* Align icon with top of text */
+    margin-bottom: 0.8rem;
+}
+.info-icon {
+    width: 24px; /* Consistent icon width */
+    min-width: 24px;
+    color: var(--secondary-color);
+    margin-right: 10px;
+    text-align: center;
+    padding-top: 0.1em; /* Fine-tune vertical alignment */
+}
+.info-label {
+    font-weight: 600;
+    margin-right: 8px;
+    color: var(--text-secondary);
+}
+.info-value { /* Container for primary and secondary value */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.primary-value { /* e.g., "Quiet" */
+    font-weight: 500;
+    color: var(--text-primary);
+}
+.secondary-value { /* e.g., "40 dB" */
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+.rating-section { /* Star rating */
+    margin-top: auto; /* Push to bottom of card content */
+    padding-top: 1rem;
+    border-top: 1px solid var(--light-color);
+}
+.rating-label {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+.star-rating {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.star { /* Individual star icon */
+    color: #fbbf24; /* Gold color for stars */
+    font-size: 1.2rem;
+    margin: 0 2px;
+}
+.view-btn { /* "View Details" button on card */
+    display: block; /* Full width */
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--app-gradient);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: filter 0.3s, transform 0.3s;
+}
+.view-btn:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+.results-actions { /* Container for actions below recommendations */
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+/* General Page Footer */
+.page-footer {
+    background-color: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto; /* Pushes footer to bottom of viewport */
+    width: 100%;
+}
+.page-footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+.page-footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+.page-footer a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Error Message on Results Page */
+.error-message-results {
+    text-align: center;
+    padding: 2rem;
+    color: var(--danger-color);
+    background-color: #fff0f0; /* Light red background for error */
+    border: 1px solid var(--danger-color);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+.error-message-results i { /* Error icon */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+.error-message-results p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* --- Section: 9. Responsive Styles --- */
+/* Purpose: Adjusts layout and styling for different screen sizes. */
+
+/* Medium Screens and Tablets */
+@media (max-width: 768px) {
+    /* Header Adjustments */
+    .fybs-app-logo { width: 36px; height: 36px; }
+    .fybs-brand-name { font-size: 18px; }
+    .fybs-nav-menu { /* Becomes a slide-out mobile menu */
+        position: fixed;
+        top: var(--header-height); /* Position below the header */
+        left: -100%; /* Off-screen by default */
+        width: 80%; /* Or a fixed width like 280px */
+        max-width: 300px;
+        height: calc(100vh - var(--header-height));
+        background: white;
+        transition: left 0.3s ease-in-out;
+        z-index: 999; /* Below overlay when open, above content */
+        padding: 2rem;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column; /* Stack items vertically */
+        gap: 1rem; /* Reset gap for vertical layout */
+    }
+    .fybs-nav-menu.active { left: 0; } /* Slide in when active */
+    .fybs-nav-menu ul { flex-direction: column; gap: 1rem; width: 100%; }
+    .fybs-nav-menu .fybs-nav-item { width: 100%; text-align: left; } /* Align text left */
+    .fybs-nav-menu .fybs-nav-link { display: block; padding: 12px 0; width: 100%; } /* Full width links */
+    .fybs-nav-link.active::after { left: 0; right: auto; width: 50%; bottom: 5px; } /* Adjust active underline */
+    .fybs-mobile-menu-toggle { display: flex; align-items: center; } /* Show hamburger */
+    .fybs-header-actions { gap: 10px; }
+    .fybs-header-actions .fybs-icon-button,
+    .fybs-header-actions .fybs-profile-button { width: 36px; height: 36px; font-size: 16px; }
+
+    /* General Header on Mobile */
+    body > header:not(.fybs-header) .header-title-container {
+        max-width: calc(100% - 100px); /* Prevent overlap with buttons */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    body > header:not(.fybs-header) .app-title { font-size: 1.1rem; }
+
+    /* Results Page on Mobile */
+    .results-page-title-container h1 { font-size: 1.8rem; }
+    .results-page-title-container .subtitle { font-size: 1rem; }
+    .your-preferences.results-page-preferences { padding: 1.2rem 1.5rem; margin-bottom: 2rem; }
+    .results-page-preferences .preferences-title { font-size: 1.15rem; margin-bottom: 1rem; }
+    .results-page-preferences .preferences-grid { grid-template-columns: 1fr; } /* Stack preference items */
+    .recommendations.results-page-recommendations { flex-direction: column; align-items: center; } /* Stack cards */
+    .recommendation-card { width: 100%; max-width: 380px; }
+    /* .best-choice { margin-bottom: 1.5rem; } */ /* If extra spacing needed for best choice */
+
+    /* About Page on Mobile */
+    .about-section h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+    .about-section h3 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+    .about-content-wrapper { padding: 0 1rem; }
+    .ieq-factors-grid { gap: 1rem; grid-template-columns: 1fr; } /* Stack IEQ factors */
+    .ieq-factor-item { padding: 1rem; }
+    .ieq-icon-container { font-size: 1.6rem; margin-right: 1rem; }
+    .how-it-works-list > li { flex-direction: column; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; text-align: center; }
+    .how-it-works-image-wrapper { flex-basis: auto; width: 100%; max-width: 260px; margin-bottom: 0.5rem; }
+    /* .how-it-works-text-content { width: 100%; text-align: center; } */ /* Already centered by parent */
+    .how-it-works-text-content h4 { font-size: 1.15rem; }
+    .benefits-grid { grid-template-columns: 1fr; } /* Stack benefits */
+    .benefit-item { padding: 1rem; }
+    .about-cta-links { padding: 1.5rem 1rem; }
+    .cta-link { display: block; margin: 0.75rem auto; max-width: 280px; }
+
+    /* Quiz Page on Mobile */
+    .quiz-page-main { padding-top: 1rem; } /* Reduced top padding */
+    .quiz-container { padding: 2rem 1.5rem; margin: 1rem auto; }
+    .quiz-question { font-size: 1.25rem; margin-bottom: 1.5rem; }
+    .progress-indicator { margin-bottom: 2rem; }
+    .progress-indicator .step { width: 28px; height: 28px; font-size: 0.8rem; }
+    .progress-indicator .step-line { width: 25px; } /* Slightly shorter line */
+    .quiz-options { gap: 0.8rem; margin-bottom: 2rem; }
+    .radio-option { padding: 0.8rem 1rem; }
+    .radio-option input[type="radio"] { width: 16px; height: 16px; margin-right: 10px;}
+    .radio-option input[type="radio"]::before {width: 7px; height: 7px;}
+    .radio-option label { font-size: 0.9rem; }
+    .radio-option label i, .radio-option label .option-icon { margin-right: 0.6rem; font-size: 1em; }
+    .preview-content { display: none !important; } /* Hide preview on mobile to prevent layout issues */
+    .next-btn, .next-btn.next-btn-active { width: 100%; justify-content: center; padding: 0.9rem; }
+    .quiz-navigation { justify-content: center; } /* Center the full-width button */
+
+    /* Loading Page on Mobile */
+    .loading-page-main { padding: 1.5rem 1rem; }
+    .loading-container { padding: 2rem 1.5rem; }
+    .loading-container h2 { font-size: 1.5rem; }
+    .preferences-summary { padding: 1rem 1.2rem; max-width: 100%;}
+    .preferences-summary p { font-size: 1rem; margin-bottom: 0.6rem; padding-bottom: 0.6rem; }
+    .preferences-summary ul { margin-top: 0.6rem; }
+    .preferences-summary li { font-size: 0.95rem; margin-bottom: 0.6rem; flex-wrap: wrap; } /* Allow wrapping */
+    .preferences-summary li i.preference-icon { margin-right: 0.8rem; font-size: 1.1em; margin-bottom: 0.3rem; }
+    .preferences-summary li .preference-label { margin-right: 0.4rem; min-width: auto; flex-shrink:0; display: block; width: 100%; margin-bottom: 0.2rem; }
+    .preferences-summary li .preference-value { word-break: break-word; display: block; width: 100%;}
+    .spinner { width: 50px; height: 50px; border-width: 6px; }
+    .loading-text { font-size: 1.05rem; }
+
+    /* Zone Details Page on Mobile */
+    .zd-container { padding-top: calc(var(--header-height) + 1rem); padding-left: 1rem; padding-right: 1rem; }
+    .zd-back-button { width: auto; margin-bottom: 1.5rem; } /* Don't make it full width unless intended */
+    .zd-header-section, .zd-location-section, .zd-photos-section, .zd-match-section, .zd-characteristics-section, .zd-status-section, .zd-actions-section {
+        padding: 1.25rem; margin-bottom: 1rem;
+    }
+    .zd-zone-title { font-size: 1.75rem; }
+    .zd-zone-subtitle { font-size: 1rem; }
+    .zd-comfort-score { flex-direction: column; text-align: center; gap: 0.75rem; }
+    .zd-main-content-grid { grid-template-columns: 1fr; } /* Stack location and photos */
+    .zd-photos-grid { height: auto; grid-template-columns: 1fr; }
+    .zd-main-photo img { aspect-ratio: 16/9; height: auto; }
+    .zd-characteristics-grid { grid-template-columns: 1fr; } /* Stack characteristics */
+    .zd-status-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    .zd-actions-section { flex-direction: column; } /* Stack action buttons */
+    .zd-action-btn { width: 100%; }
+    .zd-target-zone-text-overlay { font-size: 0.9rem; padding: 6px 10px; }
+    .zd-target-zone-highlight { border-width: 2px; }
+}
+
+/* Small Screens */
+@media (max-width: 480px) {
+    /* Header Adjustments for Small Screens */
+    .fybs-brand-name { display: none; } /* Hide brand name to save space */
+    body > header:not(.fybs-header) .app-logo { display: none; }
+    body > header:not(.fybs-header) .header-title-container { max-width: calc(100% - 90px); font-size: 1rem;}
+
+    /* Results Page for Small Screens */
+    .results-page-title-container h1 { font-size: 1.6rem; }
+    .results-page-title-container .subtitle { font-size: 0.9rem; }
+    .your-preferences.results-page-preferences { padding: 1rem; }
+    .results-page-preferences .preference-item { padding: 0.7rem 0.8rem; }
+    .results-page-preferences .preference-detail p { font-size: 0.9rem; }
+
+    /* Landing Page Hero for Small Screens */
+    .fybs-welcome-title { font-size: 28px; }
+    .fybs-welcome-subtitle { font-size: 15px; }
+    .fybs-get-started-btn { font-size: 15px; padding: 12px 25px;}
+
+    /* Quiz Page for Small Screens */
+    .quiz-question { font-size: 1.1rem; }
+    .radio-option label { font-size: 0.9rem; } /* Already set, but ensures consistency */
+    /* Loading Page Preferences Summary for Small Screens */
+    .preferences-summary li .preference-label { display:block; margin-bottom: 0.2rem;}
+    .preferences-summary li .preference-value { display:block; }
+    /* .preferences-summary li i.preference-icon { margin-bottom: 0.2rem; } */ /* Already handled by flex wrap */
+
+    /* Zone Details for Small Screens */
+    .zd-container { padding-top: calc(var(--header-height) + 0.5rem); }
+    .zd-header-section, .zd-location-section, .zd-photos-section, .zd-match-section, .zd-characteristics-section, .zd-status-section, .zd-actions-section {
+        padding: 1rem;
+    }
+    .zd-zone-title { font-size: 1.5rem; }
+    .zd-section-title { font-size: 1.1rem; }
+    .zd-main-photo img { aspect-ratio: 4/3; }
+    .zd-comfort-score { font-size: 0.9rem; gap: 8px; flex-wrap: wrap; }
+    .zd-score-value { padding: 5px 10px; font-size: 0.85rem; }
+    .zd-match-title { font-size: 1.05rem; }
+    .zd-match-description { font-size: 0.9rem; }
+    .zd-char-label { font-size: 0.9rem; }
+    .zd-char-value { font-size: 0.8rem; }
+    .zd-status-text { font-size: 1rem; }
+    .zd-action-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+}
+
+
+/* --- Section: 10. Animations --- */
+/* Purpose: Defines keyframe animations used for interactive elements and visual feedback. */
+@keyframes pulseButton { /* Example: Button pulsing effect */
+    0% { background-color: var(--primary-color); opacity: 1; transform: scale(1); box-shadow: 0 2px 5px rgba(var(--primary-rgb), 0.3); }
+    50% { background-color: var(--secondary-color); opacity: 0.9; transform: scale(1.03); box-shadow: 0 4px 12px rgba(var(--secondary-rgb), 0.4); }
+    100% { background-color: var(--primary-color); opacity: 1; transform: scale(1); box-shadow: 0 2px 5px rgba(var(--primary-rgb), 0.3); }
+}
+@keyframes bounce { /* Example: Bouncing effect for icons */
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+@keyframes spin { /* For loading spinner */
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes floatAndFade { /* Example: Decorative floating animation */
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+    25% { transform: translate(50px, -30px) rotate(45deg); opacity: 0.8; }
+    50% { transform: translate(100px, 0) rotate(90deg); opacity: 0.6; }
+    75% { transform: translate(50px, 30px) rotate(45deg); opacity: 0.8; }
+    100% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+}
+@keyframes zd-pulse-highlight { /* For zone detail page floorplan highlight */
+    0% { box-shadow: 0 0 5px rgba(var(--primary-rgb), 0.3); transform: scale(1); }
+    50% { box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.6); transform: scale(1.01); }
+    100% { box-shadow: 0 0 5px rgba(var(--primary-rgb), 0.3); transform: scale(1); }
+}
+
+/* --- Section: 11. Zone Details Page Specific Styles --- */
+/* Purpose: Overrides and specific layout for the zone-details.html page. */
+
+main.zd-container { /* Main container for zone details, inherits from .zd-container */
+    padding-top: calc(var(--header-height) + 1.5rem); /* Space for fixed header */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+/* Header Section within Zone Details Page Content */
+.zd-header-section {
+    background: var(--background-paper);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.07);
+}
+.zd-back-button {
+    background: white;
+    border: 2px solid var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex; /* To align icon and text */
+    align-items: center;
+    gap: 0.7rem;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.1);
+    margin-bottom: 2rem; /* Space below back button */
+}
+.zd-back-button i {
+    font-size: 0.9em;
+    transition: transform 0.2s ease;
+}
+.zd-back-button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+}
+.zd-back-button:hover i { transform: translateX(-3px); }
+.zd-back-button:focus-visible { /* Accessibility focus state */
+    outline: 3px solid rgba(var(--primary-rgb), 0.5);
+    outline-offset: 2px;
+}
+
+.zd-zone-title { /* Re-declared, ensure consistency or specificity if needed */
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+.zd-zone-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+.zd-zone-subtitle .rank-emoji { margin-right: 0.25em; }
+
+.zd-comfort-score {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    position: relative; /* For tooltip */
+    cursor: help; /* Indicate tooltip presence */
+}
+.zd-score-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+.zd-score-icons span { /* For "+" and "=" characters */
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+.zd-score-value {
+    background: var(--app-gradient);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px; /* Pill shape */
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.zd-score-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+
+/* Main Content Grid (Location & Photos) for Zone Details */
+.zd-main-content-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default single column */
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+@media (min-width: 769px) { /* Two columns on wider screens */
+    .zd-main-content-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.zd-location-section,
+.zd-photos-section {
+    background: var(--background-paper);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.07);
+}
+
+.zd-section-title { /* Common title for sections like Location, Photos */
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--light-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Floorplan specific styles */
+.zd-floorplan-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto; /* Center if max-width is applied */
+    overflow: hidden;
+    border-radius: 8px;
+}
+.zd-floorplan-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove bottom space */
+    border-radius: 8px; /* Match container */
+}
+.zd-zone-highlight { /* Highlight overlay, controlled by JS */
+    position: absolute;
+    background-color: rgba(var(--primary-rgb), 0.3); /* Example highlight color */
+    border: 3px solid var(--primary-color);
+    display: none; /* Initially hidden, shown by JS */
+    z-index: 5; /* Above image */
+    transition: all 0.5s ease-in-out;
+    border-radius: 4px; /* Optional: rounded corners for highlight */
+}
+.zd-zone-highlight:hover { /* Hover effect for highlight */
+    background-color: rgba(var(--secondary-rgb), 0.45);
+    border-color: var(--secondary-color);
+}
+
+/* Target Zone Highlight (used by JS for UNIVERSAL_TEXT_POSITION) */
+.zd-target-zone-highlight { /* This might be the same as .zd-zone-highlight or a distinct one */
+    position: absolute;
+    background-color: rgba(var(--primary-rgb), 0.3);
+    border: 3px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.5);
+    pointer-events: none;
+    z-index: 5;
+    animation: zd-pulse-highlight 2.5s infinite ease-in-out;
+}
+.zd-target-zone-text-overlay { /* Text overlay for floorplan, styled by UNIVERSAL_TEXT_POSITION in JS */
+    /* Most styles (position, background, color, etc.) are applied via JS from UNIVERSAL_TEXT_POSITION.
+       Only keep styles here that are truly static and not part of that object, or remove if fully JS controlled. */
+    pointer-events: none;
+    /* display: none; */ /* Visibility controlled by JS by setting style.display */
+}
+
+/* Photos Grid */
+.zd-photos-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for the main photo */
+    gap: 0.75rem;
+}
+.zd-main-photo img {
+    width: 100%;
+    height: 100%; /* Ensure it fills the container if fixed height is desired (e.g. via aspect-ratio) */
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: var(--light-color); /* Fallback */
+    border: 1px solid var(--border-light);
+    display: block;
+}
+
+/* Match Description Section */
+.zd-match-section {
+    background: var(--background-paper);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.07);
+}
+.zd-match-section .zd-match-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.zd-match-section .zd-match-title i { font-size: 1.2em; }
+.zd-match-section .zd-match-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Characteristics Section */
+.zd-characteristics-section {
+    background: var(--background-paper);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.07);
+}
+.zd-characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 1rem;
+}
+.zd-char-card { /* Individual characteristic card (Light, Temp, Noise) */
+    border: 1px solid var(--border-light);
+    background-color: var(--light-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s ease;
+    position: relative; /* For pseudo-elements */
+    overflow: hidden; /* For shimmer effect */
+}
+.zd-char-card.interactive { /* For clickable cards */
+    cursor: pointer;
+}
+.zd-char-card.interactive::before { /* Shimmer effect */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(var(--primary-rgb), 0.1), transparent);
+    transition: left 0.5s ease;
+    z-index: 1; /* Below content but above background */
+}
+.zd-char-card.interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(var(--primary-rgb), 0.3);
+}
+.zd-char-card.interactive:hover::before { left: 100%; }
+.zd-char-card.interactive:hover .zd-char-icon-wrapper {
+    background-color: rgba(var(--primary-rgb), 0.2);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+.zd-char-card.interactive:hover .zd-char-label {
+    color: var(--primary-color);
+    transition: color 0.2s ease;
+}
+.zd-char-card.interactive::after { /* Arrow indicator for interactive cards */
+    content: '→';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    color: var(--primary-color);
+    font-weight: bold;
+    z-index: 2; /* Above shimmer */
+}
+.zd-char-card.interactive:hover::after { opacity: 1; }
+.zd-char-card.interactive:active { transform: translateY(0); } /* Click feedback */
+
+/* Ensure Work Type card doesn't have hover/interactive effects if not intended */
+#charCardWorkType { cursor: default; }
+#charCardWorkType:hover { transform: none; box-shadow: none; border-color: var(--border-light); background: var(--light-color); }
+#charCardWorkType::before, #charCardWorkType::after { display: none; }
+
+.zd-char-icon-wrapper { /* Icon container within characteristic card */
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Ensure icon is above shimmer */
+    z-index: 2;
+}
+.zd-char-label {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
+    position: relative; z-index: 2;
+}
+.zd-char-value {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    position: relative; z-index: 2;
+}
+
+/* Status Section (Availability, Crowd Level) */
+.zd-status-section {
+    background: var(--background-paper);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.07);
+}
+.zd-status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+.zd-availability-status,
+.zd-crowd-level {
+    background: var(--light-color);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--border-light);
+}
+.zd-status-text { /* "Available", "Moderately Busy" */
+    font-size: 1rem;
+    font-weight: 600;
+}
+/* Color coding for availability status text */
+.status-available .zd-status-text { color: #28a745; } /* Green */
+.status-busy .zd-status-text { color: #e67e22; } /* Orange */
+.status-booked .zd-status-text { color: #dc3545; } /* Red */
+.zd-status-subtext { /* Additional details like "Ready to use now" */
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+.zd-status-indicator-icon i { /* Icon for availability status */
+    font-size: 1.5rem;
+    margin-left: auto; /* Push to the right */
+}
+.status-available .zd-status-indicator-icon i { color: #28a745; }
+
+.zd-crowd-icons { /* For crowd level visualization */
+    display: flex;
+    gap: 4px;
+    margin-left: auto; /* Push to the right */
+}
+.zd-person-icon { /* Individual "person" icon for crowd level */
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--border-light); /* Default empty state */
+}
+.zd-person-icon.filled { background: var(--secondary-color); } /* Filled state */
+
+
+/* Action Buttons Section */
+.zd-actions-section {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--background-paper);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.07);
+}
+.zd-action-btn { /* Common style for action buttons */
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    border: none;
+    flex-grow: 1; /* Allow buttons to share space */
+    min-width: 150px; /* Minimum width before wrapping */
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.zd-btn-primary {
+    background: var(--app-gradient);
+    color: white;
+}
+.zd-btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(var(--secondary-rgb), 0.25);
+}
+.zd-btn-secondary {
+    background: var(--light-color);
+    color: var(--primary-color);
+    border: 2px solid var(--border-light); /* Subtle border */
+}
+.zd-btn-secondary:hover {
+    background: var(--border-light); /* Darken slightly on hover */
+    border-color: var(--secondary-color);
+}
+.zd-btn-outline { /* For "Show Forecast" */
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.zd-btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* General Tooltip (can be used by any element with data-tooltip attribute) */
+[data-tooltip] { position: relative; } /* Required for absolute positioning of pseudo-elements */
+
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before { /* Show tooltip and arrow on hover */
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s; /* Slight delay */
+}
+[data-tooltip]::after { /* Tooltip box */
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%; /* Position above the element */
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px); /* Center and add space for arrow */
+    background: var(--text-primary);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap; /* Prevent multi-line tooltips unless intended */
+    z-index: 1070; /* High z-index */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* So it doesn't interfere with element hover */
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+[data-tooltip]::before { /* Tooltip arrow */
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px); /* Position correctly below tooltip box */
+    border: 6px solid transparent;
+    border-top-color: var(--text-primary); /* Arrow points down from tooltip */
+    z-index: 1070;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* --- Section: 12. Booking Confirmation Page Styles --- */
+/* Purpose: Styles specific to the booking confirmation page. */
+body.booking-confirmation-page { /* Apply to body tag for full page background */
+    background: linear-gradient(135deg, var(--secondary-purple-indigo) 0%, var(--primary-purple) 100%);
+    min-height: 100vh; /* Ensure gradient covers full height */
+    padding: 1rem; /* Overall padding for the page */
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; /* Reset body margin */
+    display: flex; /* To center container if needed, though margin auto does it */
+    align-items: center; /* Vertically center if using flex full height */
+    justify-content: center;
+}
+.booking-confirmation-container {
+    max-width: 900px;
+    margin: 2rem auto; /* Center container and provide top/bottom margin */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden; /* For rounded corners on inner elements */
+    animation: slideUp 0.6s ease-out; /* Entrance animation */
+}
+
+/* Booking Header */
+.booking-header {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Green success gradient */
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative; /* For pseudo-elements */
+}
+.booking-header::before { /* Decorative background pattern */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>') center/contain no-repeat;
+    opacity: 0.3;
+}
+.booking-success-icon {
+    font-size: 4rem; /* Large icon */
+    margin-bottom: 1.5rem;
+    
+    animation: bounce 1s ease-in-out; /* Bouncing animation */
+    position: relative; /* For z-index if overlapping */
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.2); /* Subtle background for icon */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto; /* Center the icon block */
+}
+.booking-confirmation-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    position: relative; z-index: 1;
+}
+.booking-confirmation-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin: 0;
+    position: relative; z-index: 1;
+}
+
+/* Booking Content Area */
+.booking-content { padding: 3rem; }
+
+.booking-details-section { /* Section for specific booking details */
+    background: #f8fafc; /* Very light grey background */
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-left: 5px solid #10b981; /* Accent border */
+}
+.booking-detail-item { /* Each line item (e.g., Zone, Date) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0; /* Separator line */
+}
+.booking-detail-item:last-child { border-bottom: none; }
+.booking-detail-label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #475569; /* Dark grey text */
+    font-size: 1rem;
+}
+.booking-detail-label i { /* Icon for label */
+    margin-right: 0.75rem;
+    color: #10b981; /* Match accent border */
+    width: 20px;
+    text-align: center;
+}
+.booking-detail-value {
+    font-weight: 700;
+    color: #1e293b; /* Darker text for value */
+    font-size: 1.1rem;
+}
+.zone-highlight { /* Specific style for highlighting the zone name */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px; /* Pill shape */
+    font-size: 1rem;
+}
+
+/* Countdown Timer */
+.booking-countdown-timer {
+    background: linear-gradient(135deg, var(--secondary-purple-indigo) 0%, var(--primary-purple) 100%); /* Use app theme gradient */
+    color: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+.booking-timer-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.booking-timer-display {
+    font-family: 'Courier New', Courier, monospace; /* Monospace for timer */
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    min-width: 120px; 
+}
+
+/* Reminder Section */
+.booking-reminder-section {
+    background: #fefce8; /* Light yellow for reminder/warning */
+    border: 1px solid #fde047; /* Yellow border */
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+.booking-reminder-title {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #a16207; /* Dark yellow text */
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+.booking-reminder-title i {
+    margin-right: 0.5rem;
+    color: #eab308; /* Warning icon color */
+}
+.booking-reminder-text {
+    color: #a16207;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Zone Information Card */
+.zone-info-card {
+    background: #f1f5f9; /* Light grey, slightly different from details section */
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-left: 5px solid var(--info-blue); /* Use info blue accent */
+}
+.zone-info-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap; /* Allow wrapping of image and text */
+    gap: 1rem;
+}
+.zone-image { /* Image of the booked zone */
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid #e2e8f0; /* Light border for image */
+}
+.zone-basic-info h3 { /* Zone ID/Name */
+    margin: 0 0 0.5rem 0;
+    color: #1e293b;
+    font-size: 1.4rem;
+}
+.zone-location { /* Location text */
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+}
+.zone-characteristics { /* Grid for Light, Noise, Temp */
+    display: grid;
+    gap: 1rem;
+}
+.zone-characteristic { /* Individual characteristic item */
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #475569;
+    padding: 0.75rem;
+    background: white; /* White background for contrast */
+    border-radius: 8px;
+}
+.zone-characteristic i {
+    width: 24px; /* Consistent icon width */
+    margin-right: 0.75rem;
+    color: var(--info-blue); /* Match accent border */
+}
+
+/* Action Buttons */
+.booking-action-buttons {
+    display: grid; /* Use grid for easy equal width columns */
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.booking-btn { /* Common button style */
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    display: inline-flex; /* For icon alignment */
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 56px; /* Consistent button height */
+}
+.booking-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.booking-btn-primary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+.booking-btn-secondary {
+    background: transparent;
+    border: 2px solid #6b7280; /* Grey outline */
+    color: #6b7280;
+}
+.booking-btn-secondary:hover {
+    background: #6b7280;
+    color: white;
+}
+.booking-btn-outline { /* For "Find Alternatives" if different style needed */
+    background: transparent;
+    border: 2px solid var(--secondary-purple-indigo); /* Use app theme color */
+    color: var(--secondary-purple-indigo);
+}
+.booking-btn-outline:hover {
+    background: var(--secondary-purple-indigo);
+    color: white;
+}
+.booking-btn i { font-size: 1.1rem; /* Icon size relative to button text */ }
+
+/* Responsive Design for Booking Confirmation Page */
+@media (min-width: 768px) { /* Tablet and larger */
+    .booking-confirmation-page { padding: 2rem; }
+    .booking-confirmation-container { margin: 3rem auto; }
+    .booking-confirmation-title { font-size: 3rem; }
+    .booking-action-buttons { grid-template-columns: 1fr 1fr; gap: 1.5rem; } /* Two columns for buttons */
+    .zone-characteristics { grid-template-columns: 1fr 1fr; } /* Two columns for characteristics */
+}
+@media (min-width: 1024px) { /* Desktop */
+    .booking-content { padding: 4rem; }
+    .booking-action-buttons { grid-template-columns: repeat(3, 1fr); } /* Three columns if many buttons */
+    .booking-btn { padding: 1.25rem 2rem; }
+}
+@media (max-width: 480px) { /* Small mobile screens */
+    body.booking-confirmation-page { padding: 0.5rem; } /* Reduce page padding */
+    .booking-confirmation-container { margin: 1rem auto; border-radius: 16px; }
+    .booking-header { padding: 2rem 1rem; }
+    .booking-confirmation-title { font-size: 1.8rem; }
+    .booking-content { padding: 1.5rem; }
+    .booking-countdown-timer { flex-direction: column; gap: 0.5rem; }
+    .booking-timer-display { font-size: 1.5rem; }
+    .zone-info-header { flex-direction: column; text-align: center; } /* Stack image and text */
+}

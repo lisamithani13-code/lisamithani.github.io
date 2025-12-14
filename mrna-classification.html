@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mRNA Classification Using Machine Learning | Lisa Mithani</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="MRNA-Class.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body class="mrna-theme">
+
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">← Back to Portfolio</a>
+
+      <div class="nav-menu">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#role" class="nav-link">My Role</a>
+        <a href="#workflow" class="nav-link">Workflow</a>
+        <a href="#results" class="nav-link">Model &amp; Results</a>
+        <a href="#limitations-next" class="nav-link">Limitations</a>
+        <a href="#reflection" class="nav-link">Reflection</a>
+      </div>
+
+      <div class="nav-toggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-content">
+
+    <header class="case-study-hero" id="top">
+      <span class="project-pill">Machine Learning · Team Project</span>
+      <h1>mRNA Classification Using<br/>Machine Learning</h1>
+
+      <p class="subtitle">
+        Collaboratively building a sequence-based ML pipeline to distinguish messenger RNA from other RNA types,
+        and leading the documentation, storytelling, and Random Forest implementation.
+      </p>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <h3>Course</h3>
+          <p>Introduction to AI (NUS)</p>
+        </div>
+        <div class="meta-item">
+          <h3>Role</h3>
+          <p>Project Scaffolding · Random Forest · Report &amp; Slides Lead</p>
+        </div>
+        <div class="meta-item">
+          <h3>Team</h3>
+          <p>4 members · Cross-functional backgrounds</p>
+        </div>
+      </div>
+
+      <div class="ieq-snapshot">
+        <div class="snapshot-card">
+          <span class="snapshot-label">Best Model</span>
+          <span class="snapshot-value">81.63%</span>
+          <span class="snapshot-caption">Accuracy (Random Forest)</span>
+        </div>
+        <div class="snapshot-card">
+          <span class="snapshot-label">ROC-AUC</span>
+          <span class="snapshot-value">0.8926</span>
+          <span class="snapshot-caption">Strong separation</span>
+        </div>
+        <div class="snapshot-card">
+          <span class="snapshot-label">My Focus</span>
+          <span class="snapshot-value">Story + Structure</span>
+          <span class="snapshot-caption">Notebook, report, slides cohesion</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="case-study-content">
+
+      <section id="overview" class="content-block">
+        <div class="text-content">
+  <span class="section-label">Overview</span>
+  <h2>The Context</h2>
+
+  <p>
+    mRNA is a special type of RNA that carries instructions for building proteins.
+    In this project, we were given thousands of RNA sequences and a simple question:
+    <em>“Is this mRNA or not?”</em>
+  </p>
+
+  <p>
+    On paper it sounds straightforward, but real genomic data is noisy, imbalanced,
+    and many sequences look deceptively similar. 
+    To tackle this, <strong>we analyze sequences by breaking them into small chunks of 4 letters (called 4-mers)</strong> 
+    to capture hidden biological patterns.
+  </p>
+
+  <h3>Goal</h3>
+  <ul class="feature-list">
+    <li>Build an end-to-end classification pipeline (data → features → models → evaluation)</li>
+    <li>Compare baseline and advanced models</li>
+    <li>Prioritise sensitivity to reduce missed mRNA sequences in practical biological analysis.</li>
+  </ul>
+</div>
+
+        <div class="image-content">
+          <img src="Images/mrna_hero_placeholder.jpeg" alt="Conceptual visual showing mRNA vs non-mRNA sequences" />
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="role" class="content-block role-section">
+        <div class="text-content">
+          <span class="section-label">Contribution Overview</span>
+          <h2>My Role in the Team</h2>
+
+          <p>
+            Our team included members with strong coding and management backgrounds. I leaned into my strengths in
+            <strong>structuring complex work, cross-disciplinary communication, and visual storytelling</strong>,
+            while also taking ownership of one of the core machine learning models.
+          </p>
+
+          <p>
+            Beyond individual contributions, I focused on ensuring that our technical work could be
+            <strong>understood, reproduced, and clearly communicated</strong>—both in presentation and in formal documentation.
+          </p>
+
+          <h3>Core Contributions</h3>
+          <ul class="feature-list">
+            <li><strong>Project Scaffolding &amp; Workflow Design:</strong> Structured the shared notebook and ML pipeline with clear sections and naming conventions.</li>
+            <li><strong>Random Forest Model Ownership:</strong> Trained and evaluated RF on 4-mer features, benchmarking against other models and summarising key metrics.</li>
+            <li><strong>Narrative, Reporting &amp; Presentation Lead:</strong> Produced a story-driven deck + AAAI-formatted report to document methodology, experiments, and findings.</li>
+          </ul>
+
+          <div class="role-callout">
+            <h4>From Presentation Narrative → Academic Rigor</h4>
+            <p>
+              I treated communication as a design problem: the same underlying pipeline needed to work at different levels of abstraction—
+              clear takeaways in slides, and reproducible depth in the AAAI report.
+            </p>
+          </div>
+        </div>
+
+        <div class="image-content">
+          <div class="role-pair">
+            <button class="role-media-card" type="button" data-lightbox-src="Images/mrna-slides.png" aria-label="Open slides image">
+              <img src="Images/mrna-slides.png" alt="Implementation framework slide summarising the end-to-end pipeline." />
+              <div class="role-media-meta">
+                <span class="role-media-pill">Slides</span>
+                <span class="role-media-title">Narrative flow (problem → pipeline → results)</span>
+              </div>
+            </button>
+
+            <button class="role-media-card" type="button" data-lightbox-src="Images/mrna-aaai-report.png" aria-label="Open AAAI report image">
+              <img src="Images/mrna-aaai-report.png" alt="AAAI-formatted report page documenting methodology and evaluation." />
+              <div class="role-media-meta">
+                <span class="role-media-pill">AAAI Report</span>
+                <span class="role-media-title">Methodology + reproducible documentation</span>
+              </div>
+            </button>
+          </div>
+
+          <p class="role-caption">
+            <strong>Same pipeline, two lenses:</strong>
+            The implementation framework (left) communicates system flow at a glance, while the AAAI snapshot (right)
+            documents the same pipeline with academic rigor and reproducibility.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="workflow" class="content-block">
+        <div class="text-content">
+          <span class="section-label">Pipeline</span>
+          <h2>Workflow</h2>
+
+          <p>An end-to-end pipeline from raw RNA sequences to evaluated classification models.</p>
+
+          <ul class="feature-list">
+            <li><strong>Data collection:</strong> FASTA-formatted RNA sequences (standard biological sequence format) for training and testing.</li>
+            <li><strong>Preprocessing:</strong> Sequence cleaning and class imbalance handling using SMOTE to reduce bias.</li>
+            <li><strong>Feature engineering:</strong> Primary 4-mer frequency representation, with alternative encodings explored for baseline comparison.</li>
+            <li><strong>Training:</strong> Cross-validation and hyperparameter tuning to ensure robust generalisation.</li>
+            <li><strong>Evaluation:</strong> Accuracy, F1, ROC-AUC, with emphasis on sensitivity–specificity trade-offs for practical use.</li>
+          </ul>
+        </div>
+
+        <div class="image-content">
+          <img src="Images/mrna_pipeline_placeholder.png" alt="Workflow diagram showing data collection, preprocessing, model selection, training and evaluation." />
+          <p class="role-caption">
+            End-to-end ML pipeline used across all models
+          </p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="results" class="section results">
+        <div class="section-inner">
+          <p class="kicker">PERFORMANCE</p>
+          <h2 class="h2">Model Evaluation & Results</h2>
+
+          <p class="lede">
+            We evaluated multiple approaches to classify RNA sequences as <b>mRNA</b> vs <b>non-mRNA</b>.
+            Instead of picking the most complex model, we selected the best option based on
+            <b>performance</b>, <b>robustness</b>, and <b>interpretability</b>.
+          </p>
+
+          <div class="eval-step">
+            <div class="step-head">
+              <span class="step-chip">Step 1</span>
+              <h3 class="h3">Baseline screening (Logistic Regression)</h3>
+            </div>
+
+            <p class="step-sub">
+              Goal: identify which feature representation makes mRNA vs non-mRNA easiest to separate.
+            </p>
+
+            <div class="cards-3">
+              <article class="model-card">
+                <div class="card-top">
+                  <h4 class="card-title">Logistic Regression</h4>
+                  <span class="badge">Baseline</span>
+                </div>
+                <p class="meta"><b>Representation:</b> Positional embedding</p>
+
+                <div class="mini-metrics">
+                  <div class="metric">
+                    <div class="label">F1</div>
+                    <div class="value">0.55</div>
+                  </div>
+                  <div class="metric">
+                    <div class="label">Insight</div>
+                    <div class="value small">Lowest signal</div>
+                  </div>
+                </div>
+
+                <p class="note">
+                  Embedding-based features underperformed in this setup — useful as a contrast case.
+                </p>
+              </article>
+
+              <article class="model-card">
+                <div class="card-top">
+                  <h4 class="card-title">Logistic Regression</h4>
+                  <span class="badge">Baseline</span>
+                </div>
+                <p class="meta"><b>Representation:</b> Character tokens</p>
+
+                <div class="mini-metrics">
+                  <div class="metric">
+                    <div class="label">F1</div>
+                    <div class="value">0.60</div>
+                  </div>
+                  <div class="metric">
+                    <div class="label">Insight</div>
+                    <div class="value small">Some signal</div>
+                  </div>
+                </div>
+
+                <p class="note">
+                  Token-level inputs helped a bit, but still lagged behind k-mer patterns.
+                </p>
+              </article>
+
+              <article class="model-card winner-soft">
+                <div class="card-top">
+                  <h4 class="card-title">Logistic Regression</h4>
+                  <span class="badge badge-teal">Best baseline</span>
+                </div>
+                <p class="meta"><b>Representation:</b> k-mers</p>
+
+                <div class="mini-metrics">
+                  <div class="metric">
+                    <div class="label">Accuracy</div>
+                    <div class="value">81.50%</div>
+                  </div>
+                  <div class="metric">
+                    <div class="label">F1</div>
+                    <div class="value">0.83</div>
+                  </div>
+                  <div class="metric">
+                    <div class="label">ROC-AUC</div>
+                    <div class="value">0.89</div>
+                  </div>
+                </div>
+
+                <p class="note">
+                  Even a simple linear model performed well with k-mers — a strong sign the
+                  <b>short nucleotide patterns</b> contain meaningful signal.
+                </p>
+              </article>
+            </div>
+
+            <div class="step-takeaway">
+              <b>Step 1 takeaway:</b> k-mer / 4-mer style features captured the clearest signal, so we used them as the foundation for advanced models.
+            </div>
+          </div>
+
+          <div class="eval-step">
+            <div class="step-head">
+              <span class="step-chip">Step 2</span>
+              <h3 class="h3">Advanced models (trained on k-mer/4-mer features)</h3>
+            </div>
+
+            <p class="step-sub">
+              Goal: test whether more complex sequence models beat a strong feature-engineered baseline.
+            </p>
+
+            <div class="cards-3">
+              <article class="model-card champion">
+  <div class="card-top">
+    <h4 class="card-title">Random Forest</h4>
+    <span class="badge badge-teal">Final model</span>
+  </div>
+  
+  <p class="meta"><b>Input:</b> 4-mer frequency features</p>
+
+  <div class="mini-metrics">
+    <div class="metric">
+      <div class="label">Accuracy</div>
+      <div class="value">81.63%</div>
+    </div>
+    <div class="metric">
+      <div class="label">F1</div>
+      <div class="value">0.83</div>
+    </div>
+    <div class="metric">
+      <div class="label">ROC-AUC</div>
+      <div class="value">0.8926</div>
+    </div>
+  </div>
+
+  <div class="key-drivers">
+    <div class="driver-head">
+      <span class="driver-label">Top Predictors (Most Important 4-mers)</span>
+    </div>
+    <div class="driver-tags">
+      <span class="driver-tag">AGGA</span>
+      <span class="driver-tag">GAAG</span>
+      <span class="driver-tag">GCAA</span>
+    </div>
+  </div>
+
+  <p class="note">
+    Best overall trade-off: strong performance <b>and</b> proves that purine-rich motifs (A/G) drive the classification.
+  </p>
+</article>
+
+              <article class="model-card">
+                <div class="card-top">
+                  <h4 class="card-title">LSTM</h4>
+                  <span class="badge">Deep model</span>
+                </div>
+                <p class="meta"><b>Input:</b> sequential 4-mers</p>
+
+                <div class="mini-metrics">
+                  <div class="metric">
+                    <div class="label">Accuracy</div>
+                    <div class="value">81.57%</div>
+                  </div>
+                  <div class="metric">
+                    <div class="label">F1</div>
+                    <div class="value">0.82</div>
+                  </div>
+                  <div class="metric">
+                    <div class="label">ROC-AUC</div>
+                    <div class="value">0.8943</div>
+                  </div>
+                </div>
+
+                <p class="note">
+                  Competitive results, suggesting sequence order helps — but adds complexity and is harder to interpret quickly.
+                </p>
+              </article>
+
+              <article class="model-card">
+                <div class="card-top">
+                  <h4 class="card-title">RNN</h4>
+                  <span class="badge">Deep model</span>
+                </div>
+                <p class="meta"><b>Input:</b> character tokens</p>
+
+                <div class="mini-metrics">
+                  <div class="metric">
+                    <div class="label">Accuracy</div>
+                    <div class="value">69.84%</div>
+                  </div>
+                  <div class="metric">
+                    <div class="label">F1</div>
+                    <div class="value">0.71</div>
+                  </div>
+                  <div class="metric">
+                    <div class="label">ROC-AUC</div>
+                    <div class="value">~0.70</div>
+                  </div>
+                </div>
+
+                <p class="note">
+                  Underperformed — character-level granularity can dilute the biologically meaningful patterns.
+                </p>
+              </article>
+            </div>
+
+            <div class="step-takeaway">
+              <b>Step 2 takeaway:</b> Deep models could match performance, but Random Forest delivered the most practical “deployable” balance.
+            </div>
+          </div>
+
+          <div class="winner-panel">
+            <div class="winner-left">
+              <p class="kicker">FINAL DECISION</p>
+              <h3 class="winner-title">Champion: Random Forest (4-mer features)</h3>
+              <p class="winner-sub">
+                Chosen for strong results + interpretability — ideal for a portfolio story and a realistic pipeline.
+              </p>
+
+              <ul class="why-list">
+                <li><b>Performance:</b> 81.63% accuracy, 0.8926 ROC-AUC</li>
+                <li><b>Interpretability:</b> Feature importance highlights which 4-mers drive predictions</li>
+                <li><b>Practicality:</b> Strong results without deep-model complexity</li>
+              </ul>
+            </div>
+
+            <div class="winner-right">
+              <div class="winner-metric">
+                <div class="label">Accuracy</div>
+                <div class="value">81.63%</div>
+              </div>
+              <div class="winner-metric">
+                <div class="label">ROC-AUC</div>
+                <div class="value">0.8926</div>
+              </div>
+              <div class="winner-metric">
+                <div class="label">F1</div>
+                <div class="value">0.83</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="footnote">
+            *Note: The key learning is that <b>feature engineering (4-mers)</b> mattered more than model complexity for this dataset size.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="limitations-next" class="lns">
+        <div class="lns__wrap">
+
+          <div class="lns__left">
+            <h2 class="lns__title">Limitations &amp;<br />Next Steps</h2>
+
+            <div class="lns__block">
+              <h3 class="lns__h3">Model Selection &amp; Training</h3>
+              <ul class="lns__list">
+                <li>
+                  <strong>RNNs converged early (epoch ~4–6)</strong> and showed signs of overfitting, so performance may not generalise well to longer sequences.
+                  <span class="lns__note">Technical note: long sequences can trigger vanishing/exploding gradients.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="lns__block">
+              <h3 class="lns__h3">Feature Extraction</h3>
+              <ul class="lns__list">
+                <li>
+                  <strong>k-mer models learn patterns seen in training</strong>, so they can struggle with novel RNA types (new compositions or unseen motifs).
+                  <span class="lns__note">Key takeaway: performance depends on representative training coverage.</span>
+                </li>
+                <li>
+                  <strong>Noise vs signal trade-off:</strong> removing too much “noise” can discard useful biological information, but keeping it can increase classification ambiguity.
+                  <span class="lns__note">Insight: feature design influenced results more than model complexity.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="lns__next">
+              <h3 class="lns__h3">Next Steps</h3>
+              <span id="next-hybrid" class="lns__anchor"></span>
+              <span id="next-dual" class="lns__anchor"></span>
+
+              <div class="lns__pills">
+                <a class="lns__pill lns__pill--primary" href="#next-hybrid">
+                  Hybrid (k-mer + tokenisation) LSTM
+                  <span class="lns__pillSub">Combine global motifs + sequence context to improve generalisation.</span>
+                </a>
+
+                <a class="lns__pill" href="#next-dual">
+                  Dual (noise &amp; no-noise) scoring
+                  <span class="lns__pillSub">Compare both pipelines to balance robustness vs biological signal.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="lns__right" aria-label="RNN training charts">
+            <div class="lns__panel">
+              <div class="lns__panelHead">
+                <span class="lns__panelTitle">RNN Training</span>
+              </div>
+
+              <figure class="lns__chart">
+                <img src="Images/rnn-training-loss.png" alt="Training loss over epochs" />
+                <figcaption>Training loss over time</figcaption>
+              </figure>
+
+              <figure class="lns__chart">
+                <img src="Images/rnn-validation-accuracy.png" alt="Validation accuracy over epochs" />
+                <figcaption>Validation accuracy over time</figcaption>
+              </figure>
+            </div>
+          </aside>
+
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="reflection" class="reflection">
+  <span class="section-label">Reflection</span>
+  <h2>What This Project Taught Me</h2>
+
+  <p>
+    This project strengthened my ability to bridge <strong>machine learning implementation</strong>
+    with <strong>clear, human-readable communication</strong>.
+    More importantly, it reinforced that effective ML systems depend less on
+    model novelty and more on <strong>structured workflows, thoughtful feature design,
+    and disciplined evaluation</strong>.
+  </p>
+
+  <p>
+    I learned that performance gains often came from asking
+    <em>the right questions about the data</em>—not from increasing model complexity.
+    This shifted how I approach ML problems: starting with interpretability,
+    validation strategy, and communication from day one.
+  </p>
+
+  <h3>If I had more time</h3>
+  <ul>
+    <li>
+      <strong>Run deeper ablation studies</strong> to better understand how different
+      feature representations (k-mers, tokenisation) influence model behaviour.
+    </li>
+    <li>
+      <strong>Calibrate probability outputs and tune decision thresholds</strong>
+      to better control sensitivity–specificity trade-offs for real-world use.
+    </li>
+    <li>
+      <strong>Evaluate lightweight transformer baselines</strong> under strict compute
+      constraints to benchmark performance against classical models.
+    </li>
+  </ul>
+</section>
+
+
+    </main>
+
+    <footer id="contact">
+      <div class="footer-content">
+        <p>&copy; 2025 Lisa Mithani. Crafted with code and empathy.</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="ieq-lightbox-overlay" id="roleLightbox" aria-hidden="true">
+    <img src="" alt="Expanded preview" />
+  </div>
+
+  <script>
+    // 1) Active-link highlighting
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach((l) => l.classList.remove("active"));
+          const active = document.querySelector(`.nav-link[href="#${id}"]`);
+          if (active) active.classList.add("active");
+        });
+      }, { root: null, rootMargin: "-30% 0px -60% 0px", threshold: 0 });
+
+      sections.forEach((s) => observer.observe(s));
+    });
+
+    // 2) Lightbox for role images
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("roleLightbox");
+      const overlayImg = overlay.querySelector("img");
+
+      document.querySelectorAll("[data-lightbox-src]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          overlayImg.src = btn.getAttribute("data-lightbox-src");
+          overlay.classList.add("is-visible");
+          overlay.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove("is-visible");
+        overlay.setAttribute("aria-hidden", "true");
+        overlayImg.src = "";
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          overlay.classList.remove("is-visible");
+          overlay.setAttribute("aria-hidden", "true");
+          overlayImg.src = "";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

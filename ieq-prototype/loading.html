@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Your Spot...</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="loading-page">
+    <header>
+        <a href="quiz-step3.html" class="back-btn header-icon-btn" aria-label="Go back to Temperature Preference">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <div class="header-title-container">
+             <img src="images/Logo.png" alt="Find Your Best Spot Logo" class="app-logo">
+            <h1 class="app-title">Find Your Best Spot</h1>
+        </div>
+        <button class="profile-btn header-icon-btn" aria-label="View profile">
+            <i class="fas fa-user"></i>
+        </button>
+    </header>
+
+    <main class="loading-page-main">
+
+        <div class="floating-emoji-bg floating-emoji-1"></div>
+        <div class="floating-emoji-bg floating-emoji-2"></div>
+        <div class="floating-emoji-bg floating-emoji-3"></div>
+        <div class="loading-container">
+            <h2 id="loading-message">Finding your ideal zone!</h2>
+
+            <div id="selected-preferences-display">
+    </div>
+
+            <div class="loading-animation-area">
+                <div class="spinner"></div>
+                <p class="loading-text">Analyzing data...</p>
+            </div>
+
+             <div id="loading-error" style="display: none; color: red; margin-top: 20px;">
+                 Could not find your best spot. Please try again.
+             </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

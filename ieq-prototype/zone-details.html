@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone Details - Find Your Best Spot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="zone-details-page-layout">
+    <header class="header fybs-header">
+        <div class="header-container fybs-header-container">
+            <div class="logo-section fybs-logo-section">
+                <img src="images/Logo.png" alt="Find Your Best Spot Logo" class="app-logo fybs-app-logo">
+                <div class="brand-name fybs-brand-name">Find Your Best Spot</div>
+            </div>
+            
+            <nav class="nav-menu fybs-nav-menu" id="navMenu">
+                <ul>
+                    <li class="nav-item fybs-nav-item">
+                        <a href="index.html" class="nav-link fybs-nav-link">Home</a>
+                    </li>
+                    <li class="nav-item fybs-nav-item">
+                        <a href="results.html" class="nav-link fybs-nav-link">Results</a>
+                    </li>
+                    <li class="nav-item fybs-nav-item">
+                        <a href="index.html#about-app-section" class="nav-link fybs-nav-link">About</a>
+                    </li>
+                    <li class="nav-item fybs-nav-item">
+                        <a href="index.html#contact-us" class="nav-link fybs-nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions fybs-header-actions">
+                <button class="icon-button fybs-icon-button" title="Search" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-button fybs-icon-button" title="Notifications" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="profile-button fybs-profile-button" title="Profile" aria-label="View profile">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="mobile-menu-toggle fybs-mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <div class="hamburger fybs-hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="zd-container">
+        <div class="zd-header-section">
+            <button id="zoneDetailGoBackBtn" class="zd-back-button">
+                <i class="fas fa-arrow-left"></i> Back to Results
+            </button>
+            
+            <h1 id="zoneDetailTitle" class="zd-zone-title">Zone Loading...</h1>
+            <p id="zoneDetailSubtitle" class="zd-zone-subtitle">Fetching details...</p>
+            
+            <div class="zd-comfort-score" data-tooltip="Overall comfort based on your preferences.">
+                <div class="zd-score-icons">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>+</span>
+                    <i class="fas fa-thermometer-half"></i>
+                    <span>+</span>
+                    <i class="fas fa-volume-up"></i>
+                    <span>=</span>
+                </div>
+                <span id="zoneDetailComfortScoreValue" class="zd-score-value">--/100</span>
+                <span class="zd-score-label">comfort score</span>
+            </div>
+        </div>
+
+        <div class="zd-main-content-grid">
+            <div class="zd-location-section">
+                <h3 class="zd-section-title">Location in Office</h3>
+                <div class="zd-floorplan-container">
+                    <img src="images/floorplan_generic.png" alt="Office Floorplan" class="zd-floorplan-image" id="zoneDetailFloorplanImage">
+                    <div class="zd-target-zone-highlight" id="zoneDetailHighlight"></div>
+                    <div class="zd-target-zone-text-overlay" id="zoneDetailTextOverlay">This zone is in Level 6, Room: 628</div>
+                </div>
+                <p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: var(--text-secondary);">
+                    The highlighted area shows a general point of interest.
+                </p>
+            </div>
+
+            <div class="zd-photos-section">
+                <h2 class="zd-section-title">Zone Photo</h2>
+                <div class="zd-photos-grid">
+                    <div class="zd-main-photo">
+                        <img id="zoneDetailMainImage" src="images/placeholder-office1.jpg" alt="Zone View">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zd-match-section">
+            <h2 id="matchTitleText" class="zd-match-title">Suitability Overview</h2>
+            <p id="zoneDetailMatchDescription" class="zd-match-description">
+                Loading suitability information...
+            </p>
+        </div>
+
+        <div class="zd-characteristics-section">
+            <h2 class="zd-section-title">Room Characteristics</h2>
+            <div class="zd-characteristics-grid">
+                <div id="charCardLight" class="zd-char-card interactive">
+                    <div class="zd-char-icon-wrapper"><i class="fas fa-lightbulb"></i></div>
+                    <div id="charLightLabel" class="zd-char-label">Light</div>
+                    <div id="charLightValue" class="zd-char-value">Loading...</div>
+                </div>
+                <div id="charCardTemp" class="zd-char-card interactive">
+                    <div class="zd-char-icon-wrapper"><i class="fas fa-thermometer-half"></i></div>
+                    <div id="charTempLabel" class="zd-char-label">Temperature</div>
+                    <div id="charTempValue" class="zd-char-value">Loading...</div>
+                </div>
+                <div id="charCardNoise" class="zd-char-card interactive">
+                    <div class="zd-char-icon-wrapper"><i class="fas fa-volume-off"></i></div>
+                    <div id="charNoiseLabel" class="zd-char-label">Noise Level</div>
+                    <div id="charNoiseValue" class="zd-char-value">Loading...</div>
+                </div>
+                <div id="charCardWorkType" class="zd-char-card">
+                    <div class="zd-char-icon-wrapper"><i class="fas fa-briefcase"></i></div>
+                    <div id="charWorkTypeLabel" class="zd-char-label">Best For</div>
+                    <div id="charWorkTypeValue" class="zd-char-value">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zd-status-section">
+            <div class="zd-section-title">Current Status</div>
+            <div class="zd-status-grid">
+                <div class="zd-availability-status status-available" id="availabilityStatusCard">
+                    <div class="zd-char-icon-wrapper"><i class="fas fa-calendar-check"></i></div>
+                    <div>
+                        <div id="availabilityText" class="zd-status-text">Available</div>
+                        <div id="availabilitySubtext" class="zd-status-subtext">Ready to use now</div>
+                    </div>
+                    <div class="zd-status-indicator-icon" id="availabilityIcon"><i class="fas fa-check-circle"></i></div>
+                </div>
+                <div class="zd-crowd-level">
+                    <div class="zd-char-icon-wrapper"><i class="fas fa-users"></i></div>
+                    <div>
+                        <div id="crowdLevelText" class="zd-status-text">Not busy</div>
+                        <div id="crowdLevelSubtext" class="zd-status-subtext">Low occupancy</div>
+                    </div>
+                    <div class="zd-crowd-icons" id="crowdIconsContainer">
+                        <span class="zd-person-icon filled"></span>
+                        <span class="zd-person-icon"></span>
+                        <span class="zd-person-icon"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zd-actions-section">
+            <button id="showFutureConditionsBtn" class="zd-action-btn zd-btn-outline">
+                <i class="fas fa-chart-line"></i> View Forecast
+            </button>
+            <button id="findAlternativesBtn" class="zd-action-btn zd-btn-secondary">
+                <i class="fas fa-search-location"></i> Find Alternatives
+            </button>
+            <button id="bookSpaceBtn" class="zd-action-btn zd-btn-primary">
+                <i class="fas fa-calendar-plus"></i> Book This Space
+            </button>
+        </div>
+    </main>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay"></div>
+
+    <footer class="page-footer">
+        <p>&copy; <span id="currentYear"></span> Find Your Best Spot. All rights reserved.</p>
+        <p><a href="index.html#contact-us">Contact Us</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Set current year
+        if(document.getElementById('currentYear')) {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
