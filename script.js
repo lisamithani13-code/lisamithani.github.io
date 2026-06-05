@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleNavScroll() {
         if (!nav) return;
         if (window.scrollY > 50) {
-            nav.style.background = 'rgba(255, 255, 255, 0.98)';
-            nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            nav.style.background = 'rgba(11, 15, 25, 0.95)';
+            nav.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.4)';
         } else {
-            nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            nav.style.background = 'rgba(11, 15, 25, 0.85)';
             nav.style.boxShadow = 'none';
         }
     }
