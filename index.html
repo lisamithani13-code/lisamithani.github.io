@@ -71,13 +71,6 @@
         
         <div class="hero-overlay">
             <div class="hero-container">
-                <div class="hero-header">
-                  <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    Available for work
-                  </div>
-                </div>
-
                 <div class="hero-main">
                   <div class="hero-photo">
                     <img src="Images/Lisa_new_pic.png" alt="A portrait of Lisa Mithani." />
@@ -267,6 +260,59 @@
         </div>
     </section>
 
+    <section id="ai-lens" class="ai-lens">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Responsible AI Lens</h2>
+                <p class="section-subtitle">A set of principles I apply when designing and evaluating AI systems — drawing from a design background.</p>
+            </div>
+
+            <div class="lens-grid">
+
+                <div class="lens-card">
+                    <div class="lens-icon">🧠</div>
+                    <h3 class="lens-title">Fairness & Bias Awareness</h3>
+                    <p class="lens-desc">I examine how datasets and system outputs may disadvantage certain user groups, and design interactions that surface or reduce bias.</p>
+                    <div class="lens-example">
+                        <span class="lens-example-label">Example application</span>
+                        <p>Ensuring recommendations don't systematically exclude certain user behaviours or profiles in decision systems.</p>
+                    </div>
+                </div>
+
+                <div class="lens-card">
+                    <div class="lens-icon">🔍</div>
+                    <h3 class="lens-title">Explainability</h3>
+                    <p class="lens-desc">I focus on making AI outputs understandable to non-technical users through clear reasoning, labels, and system transparency.</p>
+                    <div class="lens-example">
+                        <span class="lens-example-label">Example application</span>
+                        <p>Translating model outputs into plain-language insights rather than exposing raw scores or probabilities.</p>
+                    </div>
+                </div>
+
+                <div class="lens-card">
+                    <div class="lens-icon">⚠️</div>
+                    <h3 class="lens-title">Safety & Risk Thinking</h3>
+                    <p class="lens-desc">I proactively identify failure cases where AI systems could mislead, overconfidently recommend, or behave unpredictably.</p>
+                    <div class="lens-example">
+                        <span class="lens-example-label">Example application</span>
+                        <p>Adding safeguards when confidence is low or when data quality is uncertain.</p>
+                    </div>
+                </div>
+
+                <div class="lens-card">
+                    <div class="lens-icon">👤</div>
+                    <h3 class="lens-title">Human Oversight</h3>
+                    <p class="lens-desc">I design systems where humans remain the final decision-makers, especially in high-stakes or sensitive contexts.</p>
+                    <div class="lens-example">
+                        <span class="lens-example-label">Example application</span>
+                        <p>Keeping AI in a "decision support" role instead of full automation.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section id="work" class="projects-teaser">
      <div class="container">
             <div class="section-header">
@@ -444,76 +490,12 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <div class="contact-content">
-                <div class="contact-header">
-                    <h2 class="contact-title">
-                        Let's create something 
-                        <span class="highlight">amazing together</span>
-                    </h2>
-                    <p class="contact-subtitle">
-                        I'm always excited to work on new projects and collaborate 
-                        with passionate teams. Drop me a line!
-                    </p>
-                </div>
-                
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span class="contact-icon">✉️</span>
-                            <div class="contact-details">
-                                <h3>Email</h3>
-                                <a href="mailto:lisamithani13@gmail.com">lisamithani13@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">💼</span>
-                            <div class="contact-details">
-                                <h3>LinkedIn</h3>
-                                <a href="https://www.linkedin.com/in/lisa-mithani/" target="_blank">linkedin.com/in/lisa-mithani</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div class="contact-details">
-                                <h3>Location</h3>
-                                <span>Singapore, SG</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">🟢</span>
-                            <div class="contact-details">
-                                <h3>Availability</h3>
-                                <span class="availability">
-                                    Open for freelance projects, part-time initiatives, and internships.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <form class="contact-form" action="https://formspree.io/f/meozjlve" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            <span>Send Message</span>
-                            <span class="btn-arrow">→</span>
-                        </button>
-                    </form>
+            <div class="connect-block">
+                <h2 class="connect-title">Let's Connect</h2>
+                <p class="connect-sub">Interested in AI governance, UX, or systems thinking work?</p>
+                <div class="connect-actions">
+                    <a href="mailto:lisamithani13@gmail.com" class="connect-btn connect-btn--primary">Email Me</a>
+                    <a href="https://www.linkedin.com/in/lisa-mithani/" target="_blank" class="connect-btn connect-btn--outline">LinkedIn</a>
                 </div>
             </div>
         </div>
