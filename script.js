@@ -76,4 +76,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // ===== EXPERIENCE TAB SWITCHER =====
+    const expTabs = document.querySelectorAll('.exp-tab');
+    const expPanels = document.querySelectorAll('.exp-panel');
+
+    expTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            expTabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            expPanels.forEach(p => p.classList.remove('active'));
+
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            const target = document.getElementById('exp-' + tab.dataset.tab);
+            if (target) target.classList.add('active');
+        });
+    });
+
 });
