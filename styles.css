@@ -1161,6 +1161,19 @@ a:hover {
   line-height: 1.3;
 }
 
+.exp-company-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exp-company-logo {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .exp-panel-role h4 {
   font-size: 0.95rem;
   font-weight: 500;
