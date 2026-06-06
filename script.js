@@ -76,6 +76,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // ===== SCROLL SPY (active nav highlight) =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const spyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                if (activeLink) activeLink.classList.add('active');
+            }
+        });
+    }, {
+        rootMargin: '-30% 0px -60% 0px', // triggers when section occupies the middle band of viewport
+        threshold: 0,
+    });
+
+    sections.forEach(section => spyObserver.observe(section));
+
     // ===== SCROLL REVEAL =====
     const revealSelectors = [
       '.section-header',
