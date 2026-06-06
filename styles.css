@@ -497,15 +497,12 @@ a:hover {
 
 .lens-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
   position: relative;
   z-index: 2;
+  align-items: start;
 }
-
-/* Z-pattern bento: Card 1 wide-left, Card 4 wide-right */
-.lens-card:nth-child(1) { grid-column: span 2; }
-.lens-card:nth-child(4) { grid-column: 2 / span 2; }
 
 /* Sibling defocus — optical lens focus metaphor */
 .lens-grid:has(.lens-card:hover) .lens-card:not(:hover) {
