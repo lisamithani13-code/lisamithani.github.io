@@ -76,6 +76,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // ===== SCROLL REVEAL =====
+    const revealSelectors = [
+      '.section-header',
+      '.hero-skills',
+      '.lens-card',
+      '.project-card-ai',
+      '.fact-card',
+      '.about-photo-card',
+      '.about-quote',
+      '.connect-block',
+      '.exp-switcher',
+      '.about-main',
+    ];
+
+    const revealEls = document.querySelectorAll(revealSelectors.join(', '));
+
+    revealEls.forEach(el => {
+      el.classList.add('reveal');
+    });
+
+    // Stagger siblings in the same parent grid/flex container
+    const staggerParents = document.querySelectorAll(
+      '.lens-grid, .projects-grid-ai, .personal-facts, .skills-panel'
+    );
+    staggerParents.forEach(parent => {
+      Array.from(parent.children).forEach((child, i) => {
+        if (child.classList.contains('reveal')) {
+          child.style.transitionDelay = `${i * 0.1}s`;
+        }
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px',
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
     // ===== EXPERIENCE TAB SWITCHER =====
     const expTabs = document.querySelectorAll('.exp-tab');
     const expPanels = document.querySelectorAll('.exp-panel');

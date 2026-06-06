@@ -333,17 +333,19 @@ a:hover {
 }
 
 .hero-title {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(3rem, 6vw, 5.5rem);
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.15;
   margin: 0 0 var(--space-lg) 0;
   color: var(--color-text);
-  max-width: 35ch;
+  max-width: 20ch;
+  letter-spacing: -0.02em;
 }
 
 .intro-bold {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-text);
+  letter-spacing: -0.03em;
 }
 
 .highlight {
@@ -475,12 +477,41 @@ a:hover {
     radial-gradient(ellipse 70% 50% at 90% 20%, rgba(34, 211, 238, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse 50% 40% at 10% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
     #0B0F19;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optical vignette — edges darken, grid zone reads as in-focus */
+.ai-lens::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 68% 60% at 50% 50%,
+    transparent 0%,
+    rgba(11, 15, 25, 0.55) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .lens-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
+  position: relative;
+  z-index: 2;
+}
+
+/* Z-pattern bento: Card 1 wide-left, Card 4 wide-right */
+.lens-card:nth-child(1) { grid-column: span 2; }
+.lens-card:nth-child(4) { grid-column: 2 / span 2; }
+
+/* Sibling defocus — optical lens focus metaphor */
+.lens-grid:has(.lens-card:hover) .lens-card:not(:hover) {
+  opacity: 0.55;
+  filter: blur(1.5px);
+  transform: scale(0.98);
 }
 
 .lens-card {
@@ -569,9 +600,10 @@ a:hover {
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: var(--space-md);
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .section-subtitle {
@@ -1663,6 +1695,63 @@ a:hover {
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== GLASS SHIMMER ===== */
+.project-card-ai,
+.lens-card,
+.exp-panel,
+.skills-panel,
+.about-photo-card,
+.fact-card {
+  overflow: hidden;
+}
+
+.project-card-ai::after,
+.lens-card::after,
+.fact-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.055) 50%,
+    transparent 100%
+  );
+  transform: skewX(-12deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.project-card-ai:hover::after,
+.lens-card:hover::after,
+.fact-card:hover::after {
+  opacity: 1;
+  animation: glass-shimmer 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes glass-shimmer {
+  from { left: -80%; }
+  to   { left: 140%; }
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes pulse {
